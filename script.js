@@ -85,9 +85,19 @@ var parentContainer = document.querySelector('.read-more-cont')
 var parentContainerArrow = document.querySelector('.read-more-cont-arrow')
 var exitButton = document.getElementById('cont-header-close')
 
-var imgSize1 = 5000;
-var imgSize2 = 2500;
-var imgSize3 = 600;   
+var imgSize1 = 3000;
+var imgSize2 = 1000;
+var imgSize3 = 500;   
+
+var box_size_1 = 1500;
+var box_size_2 = 750;
+var box_size_3 = 500;
+
+var font_size_1 = 9
+var font_size_2 = 6
+var font_size_3 = 4
+
+var link_distance_alter = 1000
 
 
 const view = d3.select('body').append('svg')
@@ -108,6 +118,7 @@ resetViewport()
 //Assign SVG Element
 setSVG()
 
+initVariables()
 
 // Simulation init
 async function initSim(){
@@ -120,7 +131,7 @@ async function initSim(){
 
      simulation = d3
         .forceSimulation(termDB)
-        .force("link", d3.forceLink().distance(2000).id(function(d) {
+        .force("link", d3.forceLink().distance(link_distance_alter).id(function(d) {
             return d.term;
         })
         .links(links))
@@ -135,7 +146,16 @@ async function initSim(){
             }
         }))
         .force("center", d3.forceCenter(width/2, height/2).strength(0.5))
-        .force("collision", d3.forceCollide().radius(4000).strength(0.1))
+        .force("collision", d3.forceCollide().radius(function(d){
+            switch(d.level){
+                case 1:
+                    return imgSize1 * 2
+                case 2:
+                    return imgSize2 * 2
+                case 3:
+                    return imgSize3 * 2
+            }
+        }).strength(0.1))
         .alpha(0.05)
         .alphaDecay(0.001)
         .on("tick", ticked);
@@ -152,9 +172,9 @@ async function initSim(){
         .append("line")
         .attr("stroke", "black")
         .attr("display", "none")
-        .attr("opacity", 1.0)
+        .attr("opacity", 0.5)
         .attr("stroke-width", function(d) {
-            return 40;
+            return 20;
         })
         .attr("display", function(d){
             if(linksSwitch){
@@ -205,8 +225,7 @@ async function initSim(){
             .attr("stroke", "black");
         })
         .on("mouseleave", evt => {
-            link.attr("display", "none")
-            .attr("stroke", "black");
+            
         })
         .call(drag(simulation))
         
@@ -219,31 +238,31 @@ async function initSim(){
         .attr("width", function(d){
             switch(d.level){
                 case 1:
-                    return 1500
+                    return box_size_1
                 case 2:
-                    return 750
+                    return box_size_2
                 case 3:
-                    return 500
+                    return box_size_3
             }
         })
         .attr("height", function(d){
             switch(d.level){
                 case 1:
-                    return 300
+                    return box_size_1 / 5
                 case 2:
-                    return 200
+                    return box_size_2  / 5
                 case 3:
-                    return 125
+                    return box_size_3 / 5
             }
         })
         .attr("rx", function(d){
             switch(d.level){
                 case 1:
-                    return 150
+                    return box_size_1 / 10 
                 case 2:
-                    return 100
+                    return box_size_2 / 10 
                 case 3:
-                    return 50
+                    return box_size_3 / 10 
             }
         })
         .attr("fill", "#A9A9A9")
@@ -263,8 +282,7 @@ async function initSim(){
             .attr("stroke", "black");
         })
         .on("mouseleave", evt => {
-            link.attr("display", "none")
-            .attr("stroke", "black");
+            
         })  
         .call(drag(simulation));
 
@@ -287,16 +305,15 @@ async function initSim(){
         .style('font-size', function(d){
             switch(d.level){
                 case 1:
-                    return "9em"
+                    return font_size_1 + "em"
                 case 2:
-                    return "6em"
+                    return font_size_2 + "em"
                 case 3:
-                    return "4em"
+                    return font_size_3 + "em"
             }
         })
         .attr("display", function(d){
             if(linksNames){
-                //console.log("true");
                 return "block";
             }else{
                 return "none";
@@ -311,7 +328,7 @@ async function initSim(){
             .attr("stroke", "black");
         })
         .on("mouseleave", evt => {
-            link.attr("display", "none");
+            
         })
         .on("click", (evt, d) => {
             console.log(d.term)
@@ -360,9 +377,32 @@ function switchNames(){
 }
 // Tick & Drag
 function ticked() {
-
+    texts.style("font-size", function(d){
+        switch(d.level){
+            case 1:
+                return font_size_1 + "em"
+            case 2:
+                return font_size_2 + "em"
+            case 3:
+                return font_size_3 + "em"
+        }
+    });
     texts.attr("x", d => d.x);
-    texts.attr("y", d => d.y+12);
+    texts.attr("y", function(d) {
+        let lol = d.y
+        if(d.level === 3){
+            return lol+25
+        }
+        else if(d.level === 2){
+            return lol+25
+        }
+        else if(d.level === 1){
+            return lol+50
+        }
+        else{
+            return lol
+        }
+    });
 
     images
         .attr("x", function(d) {
@@ -385,26 +425,76 @@ function ticked() {
                     return d.y - imgSize3/2
             }
         })
+        .attr("width", function(d){
+            switch(d.level){
+                case 1:
+                    return imgSize1
+                case 2:
+                    return imgSize2
+                case 3:
+                    return imgSize3
+            }
+        })
+        .attr("height", function(d){
+            switch(d.level){
+                case 1:
+                    return imgSize1
+                case 2:
+                    return imgSize2
+                case 3:
+                    return imgSize3
+            }
+        })
 
     nodes
         .attr("x", function(d) {
             switch(d.level){
                 case 1:
-                    return d.x - 750
+                    return d.x - box_size_1 / 2
                 case 2:
-                    return d.x - 375
+                    return d.x - box_size_2 / 2
                 case 3:
-                    return d.x - 250
+                    return d.x -box_size_3 / 2
             }
         })
         .attr("y", function(d) {
             switch(d.level){
                 case 1:
-                    return d.y - 190
+                    return d.y - ((box_size_1 / 5) / 2)
                 case 2:
-                    return d.y - 120
+                    return d.y - ((box_size_2 / 5) / 2)
                 case 3:
-                    return d.y - 75
+                    return d.y - ((box_size_3 / 5) / 2)
+            }
+        })
+        .attr("width", function(d) {
+            switch(d.level){
+                case 1:
+                    return box_size_1
+                case 2:
+                    return box_size_2
+                case 3:
+                    return box_size_3
+            }
+        })
+        .attr("height", function(d) {
+            switch(d.level){
+                case 1:
+                    return  box_size_1 / 5
+                case 2:
+                    return  box_size_2 / 5
+                case 3:
+                    return  box_size_3 / 5
+            }
+        })
+        .attr("rx", function(d){
+            switch(d.level){
+                case 1:
+                    return box_size_1 / 10 
+                case 2:
+                    return box_size_2 / 10 
+                case 3:
+                    return box_size_3 / 10 
             }
         });
     link

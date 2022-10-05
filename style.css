@@ -16,33 +16,6 @@
     border: 2px solid #4CAF50; /* Green */
   }
 
-  .button rect {
-  stroke: #999faa; /* navy 40% */
-  stroke-width: 2px;
-}
-
-.button rect.pressed {
-  fill: #000f2b; /* navy 100% */
-}
-
-.button #gradient-start {
-  stop-color: #999faa; /* navy 40% */
-  stop-opacity: 1;
-}
-
-.button #gradient-stop {
-  stop-color: #4d576b; /* navy 70% */
-  stop-opacity: 1;
-}
-
-.button #gradient-start.active, .button #gradient-start.pressed {
-  stop-color: #4d576b; /* navy 70% */
-}
-
-.button #gradient-stop.active, .button #gradient-stop.pressed {
-  stop-color: #000f2b; /* navy 100% */
-}
-
 .button text {
   fill: #eee;
   pointer-events: none;
@@ -111,6 +84,76 @@ svg{
   left: 4vw;
   
 }
+
+#debugMenu {
+  position: absolute;
+  top: 160px;
+  left: 4vw;
+  margin-right: 20px;
+}
+
+.node-size-form{
+  position: absolute;
+  top: 200px;
+  left: 4vw;
+  background-color: #0008ff;
+  padding: 10px;
+  border-radius: 6px;
+  color: white
+}
+
+.label-size-form{
+  position: absolute;
+  top: 420px;
+  left: 4vw;
+  background-color: #0008ff;
+  padding: 10px;
+  border-radius: 6px;
+  color: white
+}
+
+.label-size-form input{
+  width:40px;
+}
+
+.link-size-form{
+  position: absolute;
+  top: 200px;
+  left: 90vw;
+  background-color: #0008ff;
+  padding: 10px;
+  border-radius: 6px;
+  color: white
+}
+
+.link-size-form input{
+  width:40px;
+}
+
+
+.text-size-form{
+  position: absolute;
+  top: 620px;
+  left: 4vw;
+  background-color: #0008ff;
+  padding: 10px;
+  border-radius: 6px;
+  color: white;
+  margin-top: 20px;
+}
+
+.text-size-form input{
+  width:40px;
+}
+
+.node-size-form input{
+  width:40px;
+}
+
+.dMenu{
+  display: none;
+}
+
 
 .modal {
   height: 440px;

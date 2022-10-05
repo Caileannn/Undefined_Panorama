@@ -8,6 +8,7 @@
 <script src="sort.js"></script>
 <script src="content.js"></script>
 <script src="parseNodeDB.js"></script>
+<script src="gui.js"></script>
 <body>
     <p id="test">undefined_panorama_prototype_26/09/22</p>
     <p id="loader">loading data</p>
@@ -53,6 +54,41 @@
     <button type="button" id="linksButton" onclick="switchLinks()">show relationships</button>
     <button type="button" id="nameButton" onclick="switchNames()">show names</button>
     <button type="button" id="returnHome" onclick="contentWindow()">home</button>
+    <button type="button" id="debugMenu" onclick="showDebugMenu()">debug menu</button>
+    <div class="dMenu">
+        <div class="node-size-form">
+            <label for="ns1">Node Size LVL.1:</label><br>
+            <input type="text" id="ns1" name="ns1"><br>
+            <label for="ns2">Node Size LVL.2:</label><br>
+            <input type="text" id="ns2" name="ns2"><br>
+            <label for="ns3">Node Size LVL.3:</label><br>
+            <input type="text" id="ns3" name="ns3"><br><br>
+            <input class="input-submit" type="submit" value="" onclick="setImageSize()"><br>
+        </div>
+        <div class="label-size-form">
+            <label for="ls1">Label Size LVL.1:</label><br>
+            <input type="text" id="ls1" name="ls1"><br>
+            <label for="ls2">Label Size LVL.2:</label><br>
+            <input type="text" id="ls2" name="ls2"><br>
+            <label for="ls3">Label Size LVL.3:</label><br>
+            <input type="text" id="ls3" name="ls3"><br><br>
+            <input class="input-submit" type="submit" value="" onclick="setLabelSize()"><br>
+        </div>
+        <div class="text-size-form">
+            <label for="ts1">Text Size LVL.1:</label><br>
+            <input type="text" id="ts1" name="ts1"><br>
+            <label for="ts2">Text Size LVL.2:</label><br>
+            <input type="text" id="ts2" name="ts2"><br>
+            <label for="ts3">Text Size LVL.3:</label><br>
+            <input type="text" id="ts3" name="ts3"><br><br>
+            <input class="input-submit" type="submit" value="" onclick="setTextSize()"><br>
+        </div>
+        <div class="link-size-form">
+            <label for="linkd">Link Distance:</label><br>
+            <input type="text" id="linkd" name="linkd"><br><br>
+            <input class="input-submit" type="submit" value="" onclick="setLinkDistance()"><br>
+        </div>
+    </div>
     <script src="script.js"></script>
     
 
