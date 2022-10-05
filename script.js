@@ -112,9 +112,9 @@ setSVG()
 // Simulation init
 async function initSim(){
     await parseNodeDB()
-    //generate_links()
+    ///generate_links()
     addContentListner()
-    //document.getElementById("loader").style.display = "none";
+    ///document.getElementById("loader").style.display = "none";
     console.log(termDB)
     console.log(links)
 
