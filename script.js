@@ -50,9 +50,10 @@ var termDB = [
     
 ]
 
-var links = [
-    {source: "Climate", target: "Food"}
-]
+var links = []
+
+
+
 
 
 // Get height and width
@@ -120,15 +121,18 @@ setSVG()
 
 initVariables()
 
+
+
 // Simulation init
 async function initSim(){
     await parseNodeDB()
     ///generate_links()
     addContentListner()
     ///document.getElementById("loader").style.display = "none";
-    console.log(termDB)
-    console.log(links)
-
+    //console.log(termDB)
+    //console.log(links)
+    
+    
      simulation = d3
         .forceSimulation(termDB)
         .force("link", d3.forceLink().distance(link_distance_alter).id(function(d) {
@@ -331,8 +335,6 @@ async function initSim(){
             
         })
         .on("click", (evt, d) => {
-            console.log(d.term)
-            console.log(termDB.indexOf(d))
             contentWindow(termDB.indexOf(d))
         })
         .call(drag(simulation))
