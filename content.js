@@ -59,27 +59,31 @@ async function appendContent(){
     //Add Main Text
     const test = document.querySelector(".read-more-text")
     const content_main = document.createElement('p')
-    //test.className = "read-more-text"
     test.innerHTML = b1_main_text
 
-
+    //Create related buttons + bubbleSort 
     for(var y = 0; y < links.length; y++){
-        //check source matches
+        //Sets term to null, every time one is found
         current_term = null
         
+        //Checks if Source Matches, -> pushes target term and colour
         if(b1_title == links[y].source.term){
             related_term_lvl = links[y].target.level
             current_term = links[y].target.term
             listOfOrderedLinks.push(current_term)
             
         }
+        //Checks if Target Matches, -> pushes source term and colour
         if(b1_title == links[y].target.term){
             related_term_lvl = links[y].source.level
             current_term = links[y].source.term
             listOfOrderedLinks.push(current_term)
         }
     }
+
+    //Orders list BubbleSort Algo
     listOfOrderedLinks = await relatedTermsBubbleSort(listOfOrderedLinks)
+    //Creates and Appends DOM elements for related bubbles
     await listOfOrderedLinks.forEach(t => {
          pushTermButton(t)
     })
@@ -109,18 +113,21 @@ async function removeAllRelations(){
 
 async function pushTermButton(ex){
     //Add button for relation
-    ct = termDB.filter(c => c.term == ex)
-    ex1 = ct[0].level
-    //related_button_array[rel_btn_index] =
+
+    //Finds the level of a term
+    nodeInDB = termDB.filter(c => c.term == ex)
+    nodeLevel = nodeInDB[0].level
+
     related_container = document.querySelector('.related-container')
     related_button = document.createElement('button')
     related_button.className = "related-button"
     related_button.id = ex
     related_button.innerHTML = ex
-    console.log(ex)
+    console.log(nodeLevel)
     related_container.appendChild(related_button)
+    
     //Change color based on level
-    switch(ex1){
+    switch(nodeLevel){
         case 1: 
             return related_button.style.color = "blue"
         case 2:
