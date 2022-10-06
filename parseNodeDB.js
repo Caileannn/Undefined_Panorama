@@ -15,9 +15,6 @@ async function parseNodeDB(){
     //Organise each Dataset accordingly, so it can be understood by the sort function
     document.getElementById("loader").style.display = "none";
     termDB = await fixTerms(termDB);
-
-    termDB = await orderRelations(termDB);
-
     termDB = await appendImageLink(termDB);
     await generate_links();
 }

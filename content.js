@@ -43,7 +43,7 @@ function parseData(term_in){
 async function appendContent(){
 
     await removeAllRelations()
-
+    var listOfOrderedLinks = []
     //Add title
     const content_header = document.getElementById('cont-header')
     content_header.innerHTML = b1_title
@@ -66,22 +66,23 @@ async function appendContent(){
     for(var y = 0; y < links.length; y++){
         //check source matches
         current_term = null
-
+        
         if(b1_title == links[y].source.term){
             related_term_lvl = links[y].target.level
             current_term = links[y].target.term
-            console.log(current_term)
-            await pushTermButton(related_term_lvl)
+            listOfOrderedLinks.push(current_term)
+            
         }
         if(b1_title == links[y].target.term){
             related_term_lvl = links[y].source.level
             current_term = links[y].source.term
-            console.log(current_term)
-            await pushTermButton(related_term_lvl)
+            listOfOrderedLinks.push(current_term)
         }
-        //check target matches
-        //add
     }
+    listOfOrderedLinks = await relatedTermsBubbleSort(listOfOrderedLinks)
+    await listOfOrderedLinks.forEach(t => {
+         pushTermButton(t)
+    })
 
 }
 
@@ -108,16 +109,18 @@ async function removeAllRelations(){
 
 async function pushTermButton(ex){
     //Add button for relation
+    ct = termDB.filter(c => c.term == ex)
+    ex1 = ct[0].level
     //related_button_array[rel_btn_index] =
     related_container = document.querySelector('.related-container')
     related_button = document.createElement('button')
     related_button.className = "related-button"
-    related_button.id = current_term
-    related_button.innerHTML = current_term
+    related_button.id = ex
+    related_button.innerHTML = ex
     console.log(ex)
     related_container.appendChild(related_button)
     //Change color based on level
-    switch(ex){
+    switch(ex1){
         case 1: 
             return related_button.style.color = "blue"
         case 2:
