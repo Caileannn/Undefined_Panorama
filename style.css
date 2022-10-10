@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
   .links line {
     stroke: black;
@@ -31,7 +30,7 @@ body{
   height: 100vh;
   overflow-y: hidden; /* Hide vertical scrollbar */
   overflow-x: hidden; /* Hide horizontal scrollbar */
-  font-family: 'IBM Plex Sans', sans-serif;
+  font-family: 'Gothic A1', sans-serif;
 }
 
 svg{
@@ -182,7 +181,7 @@ svg{
 }
 
 .overlaytest{
-  position: fixed; z-index:903; width: 33%; height: 100%; left: 33vw; 
+  position: fixed; z-index:903; width: 40%; height: 100%; left: 30vw; 
   overflow: auto;
   display: none;
   animation: open 0.3s;
@@ -238,6 +237,9 @@ svg{
   background-color: #0008ff;
   color:white;
   align-items: center;
+  padding-top: 30px;
+  padding-bottom: 25px;
+  align-items: baseline;
 }
 
 .cont-head-2{
@@ -245,6 +247,8 @@ svg{
   justify-content: space-between;
   background-color: #333333;
   color:white;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
 
 .cont-head-3{
@@ -274,12 +278,19 @@ svg{
 
 #cont-header{
   margin-left: 5%;
-  margin-right: 5%;
+  font-style: bold;
+  font-size: 22pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 
 #cont-header-2{
   margin-left: 5%;
   margin-right: 5%;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-size: 22pt;
+  font-style: bold;
 }
 
 #cont-header-close{
@@ -296,8 +307,11 @@ svg{
 
 .cont-header-lvl{
   margin-right: 5%;
-  font-size: 0.8rem;
   text-align: center;
+  font-style: normal;
+  font-size: 18pt;
+  margin-top: 0px;
+  margin-bottom: 0px;
 
 }
 
@@ -317,7 +331,7 @@ svg{
 .read-more-cont{
   margin-left: 5%;
   margin-right: 5%;
-  font-size: 1.1rem;
+  font-size: 18pt;
   word-wrap: break-word;
 }
 
@@ -336,20 +350,27 @@ svg{
 
 
 #content-paragraph{
-  font-size: 1.1rem;
+  font-size: 18pt;
+  line-height: 30px;
+  margin-bottom: 0;
+  margin-top: 20px;
 }
 
 .content-paragraph-2-s{
-  font-size: 1.1rem;
+  font-size: 18pt;
+  line-height: 30px;
+  margin-bottom: 0px;
 }
 
 .content-paragraph-2-b{
-  font-size: 1.1rem;
+  font-size: 18pt;
+  line-height: 30px;
   display: none;
 }
 
 .content-paragraph-2-b--show{
-  font-size: 1.1rem;
+  font-size: 18pt;
+  line-height: 30px;
   display: inline;
 }
 
@@ -365,7 +386,10 @@ svg{
 
 .read-more-btn{
   color: rgb(255, 255, 255);
-
+  font-size: 18pt;
+  line-height: 30px;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .read-more-btn:hover,
@@ -376,6 +400,9 @@ svg{
 
 .read-more-text{
   display: none;
+  font-size: 18pt;
+  line-height: 30px;
+  margin-top: 20px;
 }
 
 .dots-cont{
@@ -388,6 +415,9 @@ svg{
 
 .read-more-text--show{
   display: inline;
+  font-size: 18pt;
+  line-height: 30px;
+  margin-top: 20px;
 }
 
 .related-container{
@@ -395,7 +425,7 @@ svg{
   margin-right: 5%;
   display: flex;
   justify-content: start;
-  margin-bottom: 5%;
+  margin-bottom: 20px;
   flex-wrap: wrap;
   gap: 20px 0px;
 
@@ -404,6 +434,7 @@ svg{
 .related-cont{
   margin-left: 5%;
   margin-right: 5%;
+  margin-top:20px;
   font-size: 1.2rem;
 }
 
@@ -412,10 +443,11 @@ svg{
   border: none;
   color: #000000;
   padding: 10px;
+  font-style: bold;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 0.8rem;
+  font-size: 14pt;
   cursor: pointer;
   height: fit-content;
   width: fit-content;

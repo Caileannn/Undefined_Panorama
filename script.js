@@ -85,6 +85,7 @@ var content_X = document.querySelector('#cont-header-close')
 var parentContainer = document.querySelector('.read-more-cont')
 var parentContainerArrow = document.querySelector('.read-more-cont-arrow')
 var exitButton = document.getElementById('cont-header-close')
+var relatedButton = document.querySelector('.related-button')
 
 var imgSize1 = 3000;
 var imgSize2 = 1000;
@@ -107,7 +108,7 @@ const view = d3.select('body').append('svg')
         .attr("viewBox", "0 0 " + width + " " + height)
         .attr("pointer-events", "all");
 
-    const g = view.append('g'); 
+const g = view.append('g'); 
 
 
 //Start Simulation 
@@ -126,12 +127,7 @@ initVariables()
 // Simulation init
 async function initSim(){
     await parseNodeDB()
-    ///generate_links()
     addContentListner()
-    ///document.getElementById("loader").style.display = "none";
-    //console.log(termDB)
-    //console.log(links)
-    
     
      simulation = d3
         .forceSimulation(termDB)
@@ -166,7 +162,7 @@ async function initSim(){
     
     view.call(d3.zoom()
         .extent([[0.01, 1], [width, height]])
-        .scaleExtent([0.01, 4])
+        .scaleExtent([0.01, 0.5])
         .on("zoom", zoomed));
 
      link = g.selectAll("line")
@@ -227,6 +223,9 @@ async function initSim(){
             .filter(l => l.source === d || l.target === d)
             .attr("display", "block")
             .attr("stroke", "black");
+
+            //console.log("x:" + parseInt(d.x) + " y:" + parseInt(d.y))
+            
         })
         .on("mouseleave", evt => {
             
@@ -316,6 +315,7 @@ async function initSim(){
                     return font_size_3 + "em"
             }
         })
+        .attr("id", function(d){return d.term.replace(/ /g,'') + "-focus"})
         .attr("display", function(d){
             if(linksNames){
                 return "block";
@@ -344,6 +344,13 @@ async function initSim(){
 //Zoom function defined
 function zoomed({transform}){
     g.attr("transform", transform);
+}
+
+function nodeFocus(x, y){
+    view.transition().duration(750).call(
+        zoom.transform,
+        d3.zoomIdentity.translate(width / 2, height / 2).scale(0.2).translate(-x, -y)
+    )
 }
 
 function resetViewport() {

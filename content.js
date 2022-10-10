@@ -9,7 +9,7 @@ var b2_text
 var b2_source
 
 var current_term
-
+var blurActive = false
 var related_button
 var related_container
 var related_term_lvl
@@ -18,6 +18,7 @@ var related_term_lvl
 
 async function contentWindow(term_index){
     parseData(term_index)
+    termFocus()
     appendContent()
     appendContent2()
     openWindow()
@@ -35,9 +36,6 @@ function parseData(term_in){
     b2_source = termDB[term_in].box_2_source
     b2_text = termDB[term_in].box_2_text
 
-    b2_title = "Climate Change"
-    b2_source = "Source"
-    b2_text = "Longer text...."
 }
 
 async function appendContent(){
@@ -123,6 +121,15 @@ async function pushTermButton(ex){
     related_button.className = "related-button"
     related_button.id = ex
     related_button.innerHTML = ex
+
+    related_button.addEventListener('click', event=>{
+        console.log(event.target.id)
+        //closeWindow()
+        rb_filter = (termDB.filter(term => term.term == event.target.id))
+        contentWindow(rb_filter[0].index)
+        
+    })
+
     console.log(nodeLevel)
     related_container.appendChild(related_button)
     
@@ -147,6 +154,7 @@ async function closeWindow(){
     content_X.style.display = "none"
     content_X.id = "cont-header-close"
     svg_body.classList.toggle('blur') 
+    blurActive = false
 }
 
 function openWindow(){
@@ -185,7 +193,8 @@ exitButton.addEventListener('click', event=>{
 })
 
 
-    //Read More Event Listener 
+
+//Read More Event Listener 
 
 
 parentContainerArrow.addEventListener('click', event=>{
@@ -204,5 +213,19 @@ parentContainerArrow.addEventListener('click', event=>{
 }
 
 function blurBody(){
-    svg_body.classList.toggle('blur')   
+    if(!blurActive){
+        svg_body.classList.toggle('blur') 
+        blurActive = true
+    }
+    
+}
+
+function termFocus(){
+    // get the x and y coordinates of term name/image
+    // term.name => look for term in SVG 
+    var findTerm = '#' + b1_title.replace(/ /g,'') + "-focus"
+    var foundTerm = document.querySelector(findTerm)
+    var termX = parseInt(foundTerm.getAttribute('x'))
+    var termY = parseInt(foundTerm.getAttribute('y'))
+    nodeFocus(termX, termY)
 }
