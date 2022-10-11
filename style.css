@@ -565,6 +565,7 @@ svg{
   filter: none;
 }
 
+
 .main-app.blur{
   filter: blur(2px);
 }
@@ -592,4 +593,8 @@ svg{
     height: 100%; 
     left: 20vw; 
   }
+  .main-app.blur{
+    filter: saturate(30%);
+  }
+  
 }
