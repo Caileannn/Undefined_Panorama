@@ -212,7 +212,29 @@ svg{
   color: white;
 }
 
-#suboverlay-2{
+#suboverlay-second{
+  display: block;
+  margin-top: 5%;
+  width: 100%;
+  height: fit-content;
+  align-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  text-align: left;
+  font-size: 1em;
+  background-color: #333333;
+  border-radius: 2px;
+  line-height: 1.4rem;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
+  color: white;
+}
+
+#suboverlay-second.off{
+  display: none;
+}
+
+#suboverlay-video{
   display: block;
   margin-top: 5%;
   width: 100%;
@@ -229,6 +251,10 @@ svg{
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
   margin-bottom: 5vh;
+}
+
+#suboverlay-video.off{
+  display: none;
 }
 
 .cont-head{

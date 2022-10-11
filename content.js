@@ -7,7 +7,8 @@ var related_terms
 var b2_title
 var b2_text
 var b2_source
-
+var b3_v_name
+var b3_v_link
 var current_term
 var blurActive = false
 var related_button
@@ -21,6 +22,7 @@ async function contentWindow(term_index){
     termFocus()
     appendContent()
     appendContent2()
+    appendContentVideo()
     openWindow()
     blurBody()
 }
@@ -35,6 +37,9 @@ function parseData(term_in){
     b2_title = termDB[term_in].box_2_title
     b2_source = termDB[term_in].box_2_source
     b2_text = termDB[term_in].box_2_text
+
+    b3_v_link = termDB[term_in].video_link
+    b3_v_name = termDB[term_in].video_name
 
 }
 
@@ -90,6 +95,8 @@ async function appendContent(){
 
 async function appendContent2(){
 
+    const second_container = document.getElementById('suboverlay-second')
+    
     //Add title
     const content_header = document.getElementById('cont-header-2')
     content_header.innerHTML = b2_title
@@ -102,6 +109,16 @@ async function appendContent2(){
     const content_it = document.querySelector('.content-paragraph-2-b')
     content_it.innerHTML = b2_text
 
+    toggleOffOn(second_container, b2_text)
+
+}
+
+async function appendContentVideo(){
+    const video_container = document.getElementById("video-cont")
+    const video_overlay = document.getElementById("suboverlay-video")
+    console.log(b3_v_link)
+    video_container.src = b3_v_link
+    toggleOffOn(video_overlay, b3_v_link)
 }
 
 async function removeAllRelations(){
@@ -223,9 +240,22 @@ function blurBody(){
 function termFocus(){
     // get the x and y coordinates of term name/image
     // term.name => look for term in SVG 
-    var findTerm = '#' + b1_title.replace(/ /g,'') + "-focus"
+    var findTerm = b1_title.replace(/ /g,'')
+    findTerm = '#xy' + findTerm.replace(/\./g, "") + "-focus"
     var foundTerm = document.querySelector(findTerm)
     var termX = parseInt(foundTerm.getAttribute('x'))
     var termY = parseInt(foundTerm.getAttribute('y'))
     nodeFocus(termX, termY)
+}
+
+
+
+function toggleOffOn(elem, checkElem){
+    checkElem = checkElem.replace(/ /g,'')
+    if(checkElem == ""){
+        
+        elem.classList.add('off')
+    }else{
+        elem.classList.remove('off')
+    }
 }
