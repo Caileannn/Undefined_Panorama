@@ -162,7 +162,7 @@ async function initSim(){
     
     view.call(d3.zoom()
         .extent([[0.01, 1], [width, height]])
-        .scaleExtent([0.01, 0.5])
+        .scaleExtent([0.01, 0.3])
         .on("zoom", zoomed));
 
      link = g.selectAll("line")
