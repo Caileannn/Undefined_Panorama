@@ -24,6 +24,7 @@ async function contentWindow(term_index){
     appendContent()
     appendContent2()
     appendContentVideo()
+    appendComments()
     openWindow()
     blurBody()
 }
@@ -269,4 +270,37 @@ function checkReadMoreText(){
     }else{
         readMoreButton.classList.remove('hide')
     }
+}
+
+async function fetchComments(term_target){
+    term_target = 'test'
+    await axios.get('https://sheetdb.io/api/v1/2ybgndb2ws51t/search?term=' + term_target + '&casesensitive=false&sort_by=desc').then( response => {
+        console.log(response.data)
+    });
+}
+
+function newComment(){
+    var nameValue = document.getElementById("fname").value;
+    var commentValue = document.getElementById("comment").value;
+    var termValue = b1_title
+    var date = getDateComments()
+    axios.post('https://sheetdb.io/api/v1/2ybgndb2ws51t',{
+        "data": {"name": nameValue, "comment": commentValue, 'date': date, "term": termValue}
+    }).then( response => {
+        console.log(response.data);
+    });
+
+    return false;
+}
+
+function getDateComments(){
+    var currentdate = new Date(); 
+    var datetime = currentdate.getDate() + "/"
+                + (currentdate.getMonth()+1) 
+    
+    return datetime
+}
+
+function appendComments(){
+
 }

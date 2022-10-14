@@ -96,7 +96,7 @@ var box_size_2 = 100;
 var box_size_3 = 50;
 
 var font_size_1 = 11
-var font_size_2 = 6
+var font_size_2 = 8
 var font_size_3 = 4
 
 var link_distance_alter = 1000
@@ -365,7 +365,7 @@ function nodeFocus(x, y){
 function resetViewport() {
     view.transition().duration(750).call(
       zoom.transform,
-      d3.zoomIdentity.translate(width / 2, height / 2).scale(0.1).translate(0, 0),
+      d3.zoomIdentity.translate(width / 2, height / 2).scale(0.05).translate(0, 0),
     );
 }
 
@@ -412,7 +412,7 @@ function ticked() {
             return lol+25
         }
         else if(d.level === 2){
-            return lol+50
+            return lol+55
         }
         else if(d.level === 1){
             return lol+50
@@ -547,7 +547,7 @@ function ticked() {
 
 function drag(simulation) {    
     function dragstarted(event) {
-        if (!event.active) simulation.alphaTarget(0.3).restart();
+        if (!event.active) simulation.alphaTarget(0.1).restart();
         event.subject.fx = event.subject.x;
         event.subject.fy = event.subject.y;
     }

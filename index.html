@@ -10,6 +10,7 @@
 <script src="parseNodeDB.js"></script>
 <script src="gui.js"></script>
 <body>
+    
     <p id="test">undefined_panorama_prototype_26/09/22</p>
     <p id="loader">loading data</p>
     <h1 id="cont-header-close">&#10006</h1>
@@ -47,13 +48,22 @@
                 <iframe id="video-cont" width="100%" height="100%" src="" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
+        <div id="comment-section">
+            <form class="comment-form" action="/action_page.php" onsubmit="return newComment()">
+                <label for="fname">Initials:</label>
+                <input type="text" id="fname" name="fname"><br><br>
+                <label for="comment">Comment:</label>
+                <input type="text" id="comment" name="comment"><br><br>
+                <input type="submit" value="Submit">
+              </form>
+        </div>
         </div>
         
     </div>
            
     <button type="button" id="linksButton" onclick="switchLinks()">show relationships</button>
     <button type="button" id="nameButton" onclick="switchNames()">show names</button>
-    <button type="button" id="returnHome" onclick="resetViewport()">home</button>
+    <button type="button" id="returnHome" onclick="fetchComments()">home</button>
     <button type="button" id="debugMenu" onclick="showDebugMenu()">debug menu</button>
     <div class="dMenu">
         <div class="node-size-form">
