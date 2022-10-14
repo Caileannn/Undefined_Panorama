@@ -19,6 +19,7 @@ var related_term_lvl
 
 async function contentWindow(term_index){
     parseData(term_index)
+    checkReadMoreText()
     termFocus()
     appendContent()
     appendContent2()
@@ -116,7 +117,7 @@ async function appendContent2(){
 async function appendContentVideo(){
     const video_container = document.getElementById("video-cont")
     const video_overlay = document.getElementById("suboverlay-video")
-    console.log(b3_v_link)
+    //console.log(b3_v_link)
     video_container.src = b3_v_link
     toggleOffOn(video_overlay, b3_v_link)
 }
@@ -147,7 +148,7 @@ async function pushTermButton(ex){
         
     })
 
-    console.log(nodeLevel)
+    //console.log(nodeLevel)
     related_container.appendChild(related_button)
     
     //Change color based on level
@@ -257,5 +258,15 @@ function toggleOffOn(elem, checkElem){
         elem.classList.add('off')
     }else{
         elem.classList.remove('off')
+    }
+}
+
+function checkReadMoreText(){
+    let readMoreButton = document.querySelector('.read-more-btn')
+    if(b1_main_text == ""){
+        //hide button
+        readMoreButton.classList.add('hide')
+    }else{
+        readMoreButton.classList.remove('hide')
     }
 }

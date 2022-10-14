@@ -91,11 +91,11 @@ var imgSize1 = 3000;
 var imgSize2 = 1000;
 var imgSize3 = 500;   
 
-var box_size_1 = 1500;
-var box_size_2 = 750;
-var box_size_3 = 500;
+var box_size_1 = 200;
+var box_size_2 = 100;
+var box_size_3 = 50;
 
-var font_size_1 = 9
+var font_size_1 = 11
 var font_size_2 = 6
 var font_size_3 = 4
 
@@ -241,31 +241,40 @@ async function initSim(){
         .attr("width", function(d){
             switch(d.level){
                 case 1:
-                    return box_size_1
+                    if(d.term.length > 10){return box_size_1 * d.term.length}
+                    else return box_size_1 * 10
                 case 2:
-                    return box_size_2
+                    if(d.term.length > 10){return box_size_2 * d.term.length}
+                    else return box_size_2 * 10
                 case 3:
-                    return box_size_3
+                    if(d.term.length > 10){return box_size_3 * d.term.length}
+                    else return box_size_3 * 10
             }
         })
         .attr("height", function(d){
             switch(d.level){
                 case 1:
-                    return box_size_1 / 5
+                    if(d.term.length > 10){return box_size_1 * d.term.length / 5}
+                    else return box_size_1 * 10 / 5
                 case 2:
-                    return box_size_2  / 5
+                    if(d.term.length > 10){return box_size_2 * d.term.length / 5}
+                    else return box_size_2 * 10 / 5
                 case 3:
-                    return box_size_3 / 5
+                    if(d.term.length > 10){return box_size_3 * d.term.length / 5}
+                    else return box_size_3 * 10 / 5
             }
         })
         .attr("rx", function(d){
             switch(d.level){
                 case 1:
-                    return box_size_1 / 10 
+                    if(d.term.length > 10){return box_size_1 * d.term.length / 10}
+                    else return box_size_1 / 1
                 case 2:
-                    return box_size_2 / 10 
+                    if(d.term.length > 10){return box_size_2 * d.term.length / 10}
+                    else return box_size_2 / 1
                 case 3:
-                    return box_size_3 / 10 
+                    if(d.term.length > 10){return box_size_3 * d.term.length / 10}
+                    else return box_size_3 / 1
             }
         })
         .attr("fill", "#A9A9A9")
@@ -403,7 +412,7 @@ function ticked() {
             return lol+25
         }
         else if(d.level === 2){
-            return lol+25
+            return lol+50
         }
         else if(d.level === 1){
             return lol+50
@@ -459,51 +468,66 @@ function ticked() {
         .attr("x", function(d) {
             switch(d.level){
                 case 1:
-                    return d.x - box_size_1 / 2
+                    if(d.term.length > 10){return d.x - (box_size_1 * d.term.length)/2}
+                    else return d.x - (box_size_1 * 10) / 2
                 case 2:
-                    return d.x - box_size_2 / 2
+                    if(d.term.length > 10){return d.x - (box_size_2 * d.term.length)/2}
+                    else return d.x - (box_size_2 * 10) / 2
                 case 3:
-                    return d.x -box_size_3 / 2
+                    if(d.term.length > 10){return d.x - (box_size_3 * d.term.length)/2}
+                    else return d.x - (box_size_3 * 10 )/ 2
             }
         })
         .attr("y", function(d) {
             switch(d.level){
                 case 1:
-                    return d.y - ((box_size_1 / 5) / 2)
+                    if(d.term.length > 10){return d.y - ((box_size_1 * d.term.length/5) / 2)}
+                    else return d.y - (((box_size_1 * 10)/5) / 2)
                 case 2:
-                    return d.y - ((box_size_2 / 5) / 2)
+                    if(d.term.length > 10){return d.y - ((box_size_2 * d.term.length/5) / 2)}
+                    else return d.y - (((box_size_2 * 10)/5) / 2)
                 case 3:
-                    return d.y - ((box_size_3 / 5) / 2)
+                    if(d.term.length > 10){return d.y - ((box_size_3 * d.term.length/5) / 2)}
+                    else return d.y - (((box_size_3 * 10)/5) / 2)
             }
         })
         .attr("width", function(d) {
             switch(d.level){
                 case 1:
-                    return box_size_1
+                    if(d.term.length > 10){return box_size_1 * d.term.length}
+                    else return box_size_1 * 10
                 case 2:
-                    return box_size_2
+                    if(d.term.length > 10){return box_size_2 * d.term.length}
+                    else return box_size_2 * 10
                 case 3:
-                    return box_size_3
+                    if(d.term.length > 10){return box_size_3 * d.term.length}
+                    else return box_size_3 * 10
             }
         })
         .attr("height", function(d) {
             switch(d.level){
                 case 1:
-                    return  box_size_1 / 5
+                    if(d.term.length > 10){return box_size_1 * d.term.length / 5}
+                    else return box_size_1 * 10 / 5
                 case 2:
-                    return  box_size_2 / 5
+                    if(d.term.length > 10){return box_size_2 * d.term.length / 5}
+                    else return box_size_2 * 10 / 4
                 case 3:
-                    return  box_size_3 / 5
+                    if(d.term.length > 10){return box_size_3 * d.term.length / 5}
+                    else return box_size_3 * 10 / 5
             }
         })
         .attr("rx", function(d){
             switch(d.level){
                 case 1:
-                    return box_size_1 / 10 
+                    if(d.term.length > 10){return box_size_1 * d.term.length / 10}
+                    else return box_size_1 / 1
                 case 2:
-                    return box_size_2 / 10 
+                    if(d.term.length > 10){return box_size_2 * d.term.length / 10}
+                    else return box_size_2 / 1
                 case 3:
-                    return box_size_3 / 10 
+                    if(d.term.length > 10){return box_size_3 * d.term.length / 10}
+                    else return box_size_3 / 1
             }
         });
     link

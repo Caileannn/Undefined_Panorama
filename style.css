@@ -206,6 +206,7 @@ svg{
   text-align: left;
   font-size: 1em;
   background-color: #333333;
+  opacity: 0.9;
   border-radius: 2px;
   line-height: 1.4rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
@@ -416,6 +417,11 @@ svg{
   line-height: 30px;
   font-weight: 400;
   font-style: normal;
+  display: inline;
+}
+
+.read-more-btn.hide{
+  display: none;
 }
 
 .read-more-btn:hover,
