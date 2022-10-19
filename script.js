@@ -109,6 +109,17 @@ var setLang
 var showNetwork = true
 var showList = false
 
+
+//Show terms
+var showLvl1Terms = true;
+var showLvl2Terms = true;
+var showLvl3Terms = true;
+var showAllTerms = false;
+
+//slider buttons query
+var list_slider_container = document.getElementById('slider-buttons-list')
+var node_slider_container = document.getElementById('slider-buttons')
+
 const view = d3.select('body').append('svg')
         .attr("width", width)
         .attr("height", height)

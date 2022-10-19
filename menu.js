@@ -34,6 +34,11 @@ function viewGraph(){
         showList = false
         svg_body.classList.remove('hide')
         listView.classList.remove('show')
+        node_slider_container.classList.remove('hide')
+        list_slider_container.classList.remove('hide')
+        document.getElementById('hub-icon').src = "./icons/list.svg"
+    }else{
+        viewList()
     }
     
 }
@@ -46,6 +51,51 @@ function viewList(){
         showList = true
         svg_body.classList.add('hide')
         listView.classList.add('show')
+        node_slider_container.classList.add('hide')
+        list_slider_container.classList.add('hide')
+        document.getElementById('hub-icon').src = "./icons/star.svg"
     }
     
+}
+
+function toggleLvl1List(){
+    showAllTerms = false;
+    if(showLvl1Terms){
+        showLvl1Terms = false
+    }else{
+        showLvl1Terms = true
+    }
+    contentList()
+}
+
+function toggleLvl2List(){
+    showAllTerms = false;
+    if(showLvl2Terms){
+        showLvl2Terms = false
+    }else{
+        showLvl2Terms = true
+    }
+    contentList()
+}
+
+function toggleLvl3List(){
+    showAllTerms = false;
+    if(showLvl3Terms){
+        showLvl3Terms = false
+    }else{
+        showLvl3Terms = true
+    }
+    contentList()
+}
+
+function toggleAllTerms(){
+    if(showAllTerms){
+        showAllTerms = false
+    }else{
+        showAllTerms = true
+        showLvl1Terms = true
+        showLvl2Terms = true
+        showLvl3Terms = true
+    }
+    contentList()
 }

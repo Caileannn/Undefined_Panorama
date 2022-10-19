@@ -58,7 +58,7 @@ svg{
   top:47vh;
   left:43.5vw;
   font-style: normal;
-  color: #333333;
+  color: rgb(32,32,32);
   width:fit-content;
   text-align: center;
   font-weight: 700;
@@ -655,13 +655,42 @@ img.plus-img{
   position: fixed;
   top: 90px;
 }
-.slider-buttons{
+
+#slider-buttons{
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.slider-buttons button{
+#slider-buttons.hide{
+  display: none;
+}
+
+#slider-buttons-list{
+  display: none;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#slider-buttons-list.hide{
+  display: flex;
+}
+
+#slider-buttons-list button{
+  color: white;
+  background-color: rgb(32, 32, 32);
+  border-radius: 15px;
+  padding: 5px;
+  padding-left: 10px;
+  text-align: left;
+  box-shadow: 0px 0px 10px rgba(48, 52, 58, 0.548);
+  cursor: pointer;
+  font-size: 11pt;
+  width: 8vw;
+  border: none;
+}
+
+#slider-buttons button{
   color: white;
   background-color: rgb(32, 32, 32);
   border-radius: 15px;
@@ -776,7 +805,7 @@ img.plus-img{
     filter: saturate(30%);
   }
 
-  .slider-buttons button{
+  #slider-buttons button{
     width: 10vw;
   }
 
@@ -794,7 +823,7 @@ img.plus-img{
 
 @media only screen and (max-width: 1480px) {
 
-  .slider-buttons button{
+  #slider-buttons button{
     width: 12vw;
     font-size: 10pt;
   }
@@ -818,7 +847,7 @@ img.plus-img{
 
 @media only screen and (max-width: 1200px) {
 
-  .slider-buttons button{
+  #slider-buttons button{
     width: 16vw;
     font-size: 10pt;
   }
@@ -844,7 +873,7 @@ img.plus-img{
 
 @media only screen and (max-width: 830px) {
 
-  .slider-buttons button{
+  #slider-buttons button{
     width: 20vw;
     font-size: 10pt;
   }
@@ -870,7 +899,7 @@ img.plus-img{
 
 @media only screen and (max-width: 600px) {
 
-  .slider-buttons button{
+  #slider-buttons button{
     width: 30vw;
     font-size: 10pt;
   }

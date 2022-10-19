@@ -15,13 +15,19 @@
 
     <div class="ui-buttons">
         <div class="big-buttons">
-            <div class="node-buttons" ><img onclick="viewGraph()" src="./icons/star.svg" alt=""><img onclick="viewList()" class="plus-img" src="./icons/plus.svg" alt=""></div>
+            <div class="node-buttons" ><img id="hub-icon" onclick="viewGraph()" src="./icons/list.svg" alt=""><img class="plus-img" src="./icons/plus.svg" alt=""></div>
             <div class="home-buttons"><img src="./icons/home.svg" alt="" onclick="resetViewport()"><img class="plus-img" src="./icons/plus.svg" alt="" onclick="resetViewport()"></div>
            
         </div>
-        <div class="slider-buttons">
+        <div id="slider-buttons">
             <button id="relationship-slider-button" onclick="toggleRelations()">Show Relationships</button>
             <button id="term-slider-button" onclick="toggleTerms()">Show Terms</button>
+        </div>
+        <div id="slider-buttons-list">
+            <button id="term-slider-button-all" onclick="toggleAllTerms()">Show all terms</button>
+            <button id="term-slider-button-1" onclick="toggleLvl1List()">Show level 1 terms</button>
+            <button id="term-slider-button-2" onclick="toggleLvl2List()">Show level 2 terms</button>
+            <button id="term-slider-button-3" onclick="toggleLvl3List()">Show level 3 terms</button>
         </div>
     </div>
 

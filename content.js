@@ -302,13 +302,34 @@ function getDateComments(){
 }
 
 function contentList(){
-    //Create new list, sort by A-Z.
-    //create a button for every term
-    var listArray = termDB
+    const rel_buttons_cont = document.querySelector('.related-container')
+    lv_button_container.innerHTML = ''
+    var listArray = []
+    //Check what lvls are selected 
+    if(showLvl1Terms){
+        const hello1 = termDB.filter(tLvl => tLvl.level == 1)
+        console.log(hello1)
+        listArray = listArray.concat(hello1)
+        console.log(listArray)
+    }
+    if(showLvl2Terms){
+        const hello2 = termDB.filter(tLvl => tLvl.level == 2)
+        listArray = listArray.concat(hello2)
+        console.log(listArray)
+    }
+    if(showLvl3Terms){
+        const hello3 = termDB.filter(tLvl => tLvl.level == 3)
+        listArray = listArray.concat(hello3)
+        console.log(listArray)
+    }
+
+
+    console.log(listArray)
+    
     listArray.sort((a, b) => a.term.localeCompare(b.term))
+
     listArray.forEach(x => {
-        //create a button
-        //term name + level
+        
         tempTerm = x.term
         tempLvl = x.level
         
@@ -324,7 +345,6 @@ function contentList(){
             contentWindow(rb_filter[0].index)
         })
 
-        //console.log(nodeLevel)
         lv_button_container.appendChild(lv_button)
         
         //Change color based on level
