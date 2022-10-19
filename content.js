@@ -14,6 +14,7 @@ var blurActive = false
 var related_button
 var related_container
 var related_term_lvl
+var lv_button
 
 // The main content container
 
@@ -177,8 +178,8 @@ async function closeWindow(){
 
 function openWindow(){
     
-    content_window.style.display = "inline"
-    content_X.style.display = "inline"
+    content_window.style.display = "block"
+    content_X.style.display = "block"
 }
 
 function delay(ms){
@@ -303,14 +304,37 @@ function getDateComments(){
 function contentList(){
     //Create new list, sort by A-Z.
     //create a button for every term
-    termDB.forEach(x => {
+    var listArray = termDB
+    listArray.sort((a, b) => a.term.localeCompare(b.term))
+    listArray.forEach(x => {
         //create a button
         //term name + level
         tempTerm = x.term
         tempLvl = x.level
-
-        //create the button
         
+        lv_button = document.createElement('button')
+        lv_button.className = "listView-button"
+        lv_button.id = tempTerm
+        lv_button.innerHTML = tempTerm
+
+        lv_button.addEventListener('click', event=>{
+            console.log(event.target.id)
+            //closeWindow()
+            rb_filter = (termDB.filter(term => term.term == event.target.id))
+            contentWindow(rb_filter[0].index)
+        })
+
+        //console.log(nodeLevel)
+        lv_button_container.appendChild(lv_button)
+        
+        //Change color based on level
+        switch(tempLvl){
+            case 1: 
+                return lv_button.style.color = "blue"
+            case 2:
+                return lv_button.style.color = "#15E115"
+            case 3:
+                return lv_button.style.color = "red"
+        }
     })
-    //append new dom elements
 }

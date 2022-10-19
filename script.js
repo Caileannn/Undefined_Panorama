@@ -88,6 +88,7 @@ var langContainer = document.querySelector('.lang-buttons')
 var exitButton = document.getElementById('cont-header-close')
 var relatedButton = document.querySelector('.related-button')
 var listView = document.querySelector('.termList')
+var lv_button_container = document.querySelector('.tlInner')
 
 var imgSize1 = 3000;
 var imgSize2 = 1000;
@@ -133,6 +134,7 @@ resetViewport()
 //Assign SVG Element
 setSVG()
 
+
 // Simulation init
 async function initSim(){
     document.getElementById("loader").style.display = "none";
@@ -142,7 +144,7 @@ async function initSim(){
       })
     await parseNodeDB()
     addContentListner()
-    
+    contentList()
      simulation = d3
         .forceSimulation(termDB)
         .force("link", d3.forceLink().distance(link_distance_alter).id(function(d) {

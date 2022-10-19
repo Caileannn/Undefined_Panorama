@@ -23,8 +23,6 @@ async function generate_links(){
         })
       }
     }
-
-  console.log(links);
   });
 }
 

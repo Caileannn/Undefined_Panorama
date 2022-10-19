@@ -627,7 +627,7 @@ input.submit-input{
 }
 
 .ui-buttons{
-  z-index: 10000;
+  z-index: 10;
   position: fixed;
   margin-left: 2vw;
   margin-top: 4vh;
@@ -711,6 +711,7 @@ img.plus-img{
   border: #0008ff;
   overflow: auto;
   display: none;
+  z-index: -100;
 }
 
 .tlInner{
@@ -721,7 +722,27 @@ img.plus-img{
   gap: 20px;
   padding-top: 15vh;
   padding-bottom: 10vh;
-  
+  justify-content: center;
+  align-items: center;
+}
+
+.listView-button{
+  background-color: #9C9C9C; /* Green */
+  border: none;
+  color: #000000;
+  padding: 10px;
+  font-style: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14pt;
+  cursor: pointer;
+  height: fit-content;
+  width: 20vw;
+  border-radius: 40px;
+  margin-right: 2%;
+  justify-content: center;
+
 }
 
 .termList.show{
@@ -789,6 +810,10 @@ img.plus-img{
     width: 20px;
     height: auto;
   }
+  .listView-button{
+    width: 30vw;
+  
+  }
 }
 
 @media only screen and (max-width: 1200px) {
@@ -813,6 +838,8 @@ img.plus-img{
     width: 20px;
     height: auto;
   }
+
+  
 }
 
 @media only screen and (max-width: 830px) {
@@ -835,6 +862,9 @@ img.plus-img{
   }
   #loader{
     left: 29vw;
+  }
+  #comment-section{
+    display: none;
   }
 }
 
@@ -863,5 +893,44 @@ img.plus-img{
   #loader{
     left: 15vw;
   }
+  .listView-button{
+    width: 40vw;
+    
+  }
+  .tlInner{
+    padding-top: 30vh;
+  }
+  #content-paragraph{
+    font-size: 12pt;
+  }
+  .read-more-btn{
+    font-size: 12pt;
+  }
+  .related-button{
+    font-size: 12pt;
+  }
+  #cont-header{
+    font-size: 18pt;
+  }
+  #cont-header-lvl{
+    font-size: 14pt;
+  }
+  .read-more-text{
+    font-size: 12pt;
+  }
+  .cont-header-2{
+    font-size: 18pt;
+  }
+  .cont-head-2{
+    font-size: 14pt;
+  }
+  .read-more-cont-arrow{
+    font-size: 12pt;
+  }
+  .content-paragraph-2-b{
+    font-size: 12pt;
+  }
+
+
   
 }
