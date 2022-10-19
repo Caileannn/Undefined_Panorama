@@ -24,7 +24,6 @@ async function contentWindow(term_index){
     appendContent()
     appendContent2()
     appendContentVideo()
-    appendComments()
     openWindow()
     blurBody()
 }
@@ -301,6 +300,17 @@ function getDateComments(){
     return datetime
 }
 
-function appendComments(){
+function contentList(){
+    //Create new list, sort by A-Z.
+    //create a button for every term
+    termDB.forEach(x => {
+        //create a button
+        //term name + level
+        tempTerm = x.term
+        tempLvl = x.level
 
+        //create the button
+        
+    })
+    //append new dom elements
 }

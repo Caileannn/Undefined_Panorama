@@ -25,3 +25,27 @@ function toggleTerms(){
         nodes.attr("display", "block");
     }
 }
+
+function viewGraph(){
+    console.log("show")
+    
+    if(!showNetwork){
+        showNetwork = true
+        showList = false
+        svg_body.classList.remove('hide')
+        listView.classList.remove('show')
+    }
+    
+}
+
+function viewList(){
+    console.log("list")
+    
+    if(!showList){
+        showNetwork = false
+        showList = true
+        svg_body.classList.add('hide')
+        listView.classList.add('show')
+    }
+    
+}

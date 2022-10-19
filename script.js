@@ -87,6 +87,7 @@ var parentContainerArrow = document.querySelector('.read-more-cont-arrow')
 var langContainer = document.querySelector('.lang-buttons')
 var exitButton = document.getElementById('cont-header-close')
 var relatedButton = document.querySelector('.related-button')
+var listView = document.querySelector('.termList')
 
 var imgSize1 = 3000;
 var imgSize2 = 1000;
@@ -104,6 +105,8 @@ var link_distance_alter = 1000
 
 //Language
 var setLang
+var showNetwork = true
+var showList = false
 
 const view = d3.select('body').append('svg')
         .attr("width", width)
