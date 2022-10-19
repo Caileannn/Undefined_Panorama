@@ -84,6 +84,7 @@ var content_window = document.querySelector('.overlaytest')
 var content_X = document.querySelector('#cont-header-close')
 var parentContainer = document.querySelector('.read-more-cont')
 var parentContainerArrow = document.querySelector('.read-more-cont-arrow')
+var langContainer = document.querySelector('.lang-buttons')
 var exitButton = document.getElementById('cont-header-close')
 var relatedButton = document.querySelector('.related-button')
 
@@ -101,6 +102,8 @@ var font_size_3 = 4
 
 var link_distance_alter = 1000
 
+//Language
+var setLang
 
 const view = d3.select('body').append('svg')
         .attr("width", width)
@@ -110,6 +113,13 @@ const view = d3.select('body').append('svg')
 
 const g = view.append('g'); 
 
+const krLang = document.querySelector('.KR')
+const engLang = document.querySelector('.ENG')
+
+const promise1 = new Promise((resolve, reject) => {
+    krLang.addEventListener('click', resolve)
+    engLang.addEventListener('click', reject)
+  })
 
 //Start Simulation 
 initSim()
@@ -120,12 +130,13 @@ resetViewport()
 //Assign SVG Element
 setSVG()
 
-initVariables()
-
-
-
 // Simulation init
 async function initSim(){
+    document.getElementById("loader").style.display = "none";
+    await waitClick() .then(() => {
+        langContainer.style.display = "none"
+        document.getElementById("loader").style.display = "inline";
+      })
     await parseNodeDB()
     addContentListner()
     
@@ -369,30 +380,21 @@ function resetViewport() {
     );
 }
 
-//Show links function
-function switchLinks(){
-    if(!linksSwitch) {
-        linksSwitch = true;
-        link.attr("display", "block");
-    }else{
-        //console.log("true!");
-        linksSwitch = false;
-        link.attr("display", "none");
-    }
+
+
+
+
+async function waitClick () {
+  return await promise1
+    .then((ev) => {
+      setLang = ev.target.value
+    })
+    .catch((ev) => setLang = ev.target.value)
 }
 
-function switchNames(){
-    if(!linksNames) {
-        linksNames = true;
-        texts.attr("display", "block");
-        nodes.attr("display", "block");
-    }else{
-        //console.log("true!");
-        linksNames = false;
-        texts.attr("display", "none");
-        nodes.attr("display", "none");
-    }
-}
+
+
+
 // Tick & Drag
 function ticked() {
     texts.style("font-size", function(d){

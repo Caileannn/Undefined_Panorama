@@ -9,10 +9,28 @@
 <script src="content.js"></script>
 <script src="parseNodeDB.js"></script>
 <script src="gui.js"></script>
+<script src="menu.js"></script>
 <body>
     
-    <p id="test">undefined_panorama_prototype_26/09/22</p>
-    <p id="loader">loading data</p>
+
+    <div class="ui-buttons">
+        <div class="big-buttons">
+            <div class="node-buttons"><img src="./icons/star.svg" alt=""><img class="plus-img" src="./icons/plus.svg" alt=""></div>
+            <div class="home-buttons"><img src="./icons/home.svg" alt="" onclick="resetViewport()"><img class="plus-img" src="./icons/plus.svg" alt="" onclick="resetViewport()"></div>
+           
+        </div>
+        <div class="slider-buttons">
+            <button id="relationship-slider-button" onclick="toggleRelations()">Show Relationships</button>
+            <button id="term-slider-button" onclick="toggleTerms()">Show Terms</button>
+        </div>
+    </div>
+
+    <div class="lang-buttons">
+        <button value="KR" class="KR">KR</button>
+        <button value="ENG" class="ENG">ENG</button>
+    </div>
+
+    <p id="loader">(Loading Network)</p>
     <h1 id="cont-header-close">&#10006</h1>
     <div class="overlaytest" id="overlaytest">
         
@@ -39,7 +57,7 @@
                 <p class="content-paragraph-2-s"></p>
                 <p class="content-paragraph-2-b"></p>
                 <div class="content-exp">˅</div>
-                <div class="comments">Comments coming soon!</div>
+                <!--<div class="comments">Comments coming soon!</div>-->
             </div>
             
         </div>
@@ -50,53 +68,13 @@
         </div>
         <div id="comment-section">
             <form class="comment-form" action="/action_page.php" onsubmit="return newComment()">
-                <label for="fname">Initials:</label>
+                <label for="fname">Name:</label>
                 <input type="text" id="fname" name="fname"><br><br>
                 <label for="comment">Comment:</label>
                 <input type="text" id="comment" name="comment"><br><br>
-                <input type="submit" value="Submit">
+                <input type="submit" value="Submit" class="submit-input">
               </form>
         </div>
-        </div>
-        
-    </div>
-           
-    <button type="button" id="linksButton" onclick="switchLinks()">show relationships</button>
-    <button type="button" id="nameButton" onclick="switchNames()">show names</button>
-    <button type="button" id="returnHome" onclick="fetchComments()">home</button>
-    <button type="button" id="debugMenu" onclick="showDebugMenu()">debug menu</button>
-    <div class="dMenu">
-        <div class="node-size-form">
-            <label for="ns1">Node Size LVL.1:</label><br>
-            <input type="text" id="ns1" name="ns1"><br>
-            <label for="ns2">Node Size LVL.2:</label><br>
-            <input type="text" id="ns2" name="ns2"><br>
-            <label for="ns3">Node Size LVL.3:</label><br>
-            <input type="text" id="ns3" name="ns3"><br><br>
-            <input class="input-submit" type="submit" value="" onclick="setImageSize()"><br>
-        </div>
-        <div class="label-size-form">
-            <label for="ls1">Label Size LVL.1:</label><br>
-            <input type="text" id="ls1" name="ls1"><br>
-            <label for="ls2">Label Size LVL.2:</label><br>
-            <input type="text" id="ls2" name="ls2"><br>
-            <label for="ls3">Label Size LVL.3:</label><br>
-            <input type="text" id="ls3" name="ls3"><br><br>
-            <input class="input-submit" type="submit" value="" onclick="setLabelSize()"><br>
-        </div>
-        <div class="text-size-form">
-            <label for="ts1">Text Size LVL.1:</label><br>
-            <input type="text" id="ts1" name="ts1"><br>
-            <label for="ts2">Text Size LVL.2:</label><br>
-            <input type="text" id="ts2" name="ts2"><br>
-            <label for="ts3">Text Size LVL.3:</label><br>
-            <input type="text" id="ts3" name="ts3"><br><br>
-            <input class="input-submit" type="submit" value="" onclick="setTextSize()"><br>
-        </div>
-        <div class="link-size-form">
-            <label for="linkd">Link Distance:</label><br>
-            <input type="text" id="linkd" name="linkd"><br><br>
-            <input class="input-submit" type="submit" value="" onclick="setLinkDistance()"><br>
         </div>
     </div>
     <script src="script.js"></script>

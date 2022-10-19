@@ -24,7 +24,7 @@ async function generate_links(){
       }
     }
 
-  //console.log(links);
+  console.log(links);
   });
 }
 

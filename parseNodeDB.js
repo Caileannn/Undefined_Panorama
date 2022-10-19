@@ -4,11 +4,15 @@ const loadingButton = document.querySelector('#loader')
 async function parseNodeDB(){
 
     //Fetch Data from API for Terms and Hashtags
- 
-    await axios.get('https://sheetdb.io/api/v1/2gjut6v25rdiy?sheet=Sheet1&sort_by=level&sort_order=asc').then( response => {
+    if(setLang == "KR"){await axios.get('https://sheetdb.io/api/v1/2gjut6v25rdiy?sheet=kr&sort_by=level&sort_order=asc').then( response => {
         termDB = response.data;
         console.log("Success, data logged (terms)")
-    });
+    })}else if(setLang == "ENG"){
+        await axios.get('https://sheetdb.io/api/v1/2gjut6v25rdiy?sheet=Sheet1&sort_by=level&sort_order=asc').then( response => {
+            termDB = response.data;
+            console.log("Success, data logged (terms)")
+        });
+    }
     
     
 
@@ -16,6 +20,7 @@ async function parseNodeDB(){
     document.getElementById("loader").style.display = "none";
     termDB = await fixTerms(termDB);
     termDB = await appendImageLink(termDB);
+    console.log(termDB)
     await generate_links();
 }
 

@@ -54,12 +54,14 @@ svg{
 
 #loader {
   position:absolute;
-  top:50vh;
-  left:45vw;
-  font-style: italic;
-  color: blue;
+  top:47vh;
+  left:43.5vw;
+  font-style: normal;
+  color: #333333;
   width:fit-content;
   text-align: center;
+  font-weight: 700;
+  font-size: 1.9rem;
 }
 
 
@@ -229,6 +231,7 @@ svg{
   line-height: 1.4rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
+  opacity: 0.9;
 }
 
 #suboverlay-second.off{
@@ -586,7 +589,7 @@ svg{
   margin-left: auto;
   margin-right: auto;
   overflow: auto;
-  text-align: left;
+  text-align:center;
   font-size: 1em;
   background-color: #333333;
   opacity: 0.9;
@@ -594,6 +597,7 @@ svg{
   line-height: 1.4rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
+  justify-items: baseline;
 }
 
 .comment-form{
@@ -602,6 +606,94 @@ svg{
   align-content: center;
   justify-content: space-between;
   margin: 5%;
+}
+
+.comment-form input{
+  border-radius: 10px;
+  background-color: #333333;
+  color: white;
+}
+
+input.submit-input{
+  background-color: white;
+  color: #333333;
+  width: 10%;
+  cursor: pointer;
+}
+
+.ui-buttons{
+  z-index: 10000;
+  position: fixed;
+  margin-left: 2vw;
+  margin-top: 4vh;
+  font-family: 'Gothic A1', sans-serif;
+}
+
+.big-buttons{
+  display: flex;  
+  width: fit-content;
+  margin-bottom: 2vh;
+  flex-direction: row;
+  gap: 15px;
+}
+
+.big-buttons img{
+  width: 3vw;
+  height: auto;
+  cursor: pointer;
+  filter: drop-shadow(0 0 0.25rem rgba(31, 29, 29, 0.712));
+}
+
+img.plus-img{
+  width: 20px;
+  height: auto;
+}
+.slider-buttons{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.slider-buttons button{
+  color: white;
+  background-color: rgb(32, 32, 32);
+  border-radius: 15px;
+  padding: 5px;
+  padding-left: 10px;
+  text-align: left;
+  box-shadow: 0px 0px 10px rgba(48, 52, 58, 0.548);
+  cursor: pointer;
+  font-size: 11pt;
+  width: 8vw;
+  border: none;
+}
+
+#relationship-slider-button.off{
+  color: black;
+  background-color: white;
+}
+
+#term-slider-button.off{
+  color: black;
+  background-color: white;
+}
+
+.lang-buttons{
+  position: fixed;
+  top:50vh;
+  right: 45vw;
+}
+
+.lang-buttons button{
+  color: white;
+  background-color: rgb(32, 32, 32);
+  border-radius: 15px;
+  padding: 5px;
+  box-shadow: 0px 0px 10px rgba(48, 52, 58, 0.288);
+  cursor: pointer;
+  font-size: 11pt;
+  border: none;
+  min-width: 100px;
 }
 
 @keyframes open {
@@ -629,6 +721,115 @@ svg{
   }
   .main-app.blur{
     filter: saturate(30%);
+  }
+
+  .slider-buttons button{
+    width: 10vw;
+  }
+
+  .big-buttons img{
+    width: 4vw;
+  }
+  img.plus-img{
+    width: 20px;
+    height: auto;
+  }
+  #loader{
+    left: 42vw;
+  }
+}
+
+@media only screen and (max-width: 1480px) {
+
+  .slider-buttons button{
+    width: 12vw;
+    font-size: 10pt;
+  }
+
+  .big-buttons img{
+    width: 5vw;
+  }
+
+  .lang-buttons{
+    right: 40vw
+  }
+  img.plus-img{
+    width: 20px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+
+  .slider-buttons button{
+    width: 16vw;
+    font-size: 10pt;
+  }
+
+  .big-buttons img{
+    width: 7vw;
+  }
+
+  .ui-buttons{
+    margin-left: 4vw;
+  }
+  
+  .lang-buttons{
+    right: 38vw
+  }
+  img.plus-img{
+    width: 20px;
+    height: auto;
+  }
+}
+
+@media only screen and (max-width: 830px) {
+
+  .slider-buttons button{
+    width: 20vw;
+    font-size: 10pt;
+  }
+
+  .big-buttons img{
+    width: 8vw;
+  }
+
+  .ui-buttons{
+    margin-left: 4vw;
+  }
+  img.plus-img{
+    width: 20px;
+    height: auto;
+  }
+  #loader{
+    left: 29vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+
+  .slider-buttons button{
+    width: 30vw;
+    font-size: 10pt;
+  }
+
+  .big-buttons img{
+    width: 13vw;
+  }
+
+  .ui-buttons{
+    margin-left: 4vw;
+  }
+
+  .lang-buttons{
+    right: 30vw
+  }
+  img.plus-img{
+    width: 20px;
+    height: auto;
+  }
+  #loader{
+    left: 15vw;
   }
   
 }
