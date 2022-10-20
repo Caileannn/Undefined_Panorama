@@ -123,6 +123,9 @@ var showAllTerms = false;
 //slider buttons query
 var list_slider_container = document.getElementById('slider-buttons-list')
 var node_slider_container = document.getElementById('slider-buttons')
+var relationship_slider_btn = document.getElementById('relationship-slider-button')
+var hub_icon = document.getElementById('hub-icon')
+var pageState = true
 
 var term_slider_btn_all = document.getElementById('term-slider-button-all')
 var term_slider_btn_1 = document.getElementById('term-slider-button-1')
@@ -160,6 +163,7 @@ setSVG()
 
 // Simulation init
 async function initSim(){
+    relationship_slider_btn.classList.toggle('off')
     document.getElementById("loader").style.display = "none";
     await waitClick() .then(() => {
         langContainer.style.display = "none"
@@ -618,4 +622,16 @@ function linkDistance(d) {
     return d.distance;
 }
 
+hub_icon.addEventListener('mouseover', event =>{
+    const current = event.target
+    if(pageState){current.src = './icons/list.svg'}
+    else{current.src = './icons/star.svg'}
+    
+})
+
+hub_icon.addEventListener('mouseleave', event =>{
+    const current = event.target
+    if(pageState){current.src = './icons/star.svg'}
+    else{current.src = './icons/list.svg'}
+})
 

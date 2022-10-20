@@ -38,6 +38,7 @@ function viewGraph(){
         node_slider_container.classList.remove('hide')
         list_slider_container.classList.remove('hide')
         document.getElementById('hub-icon').src = "./icons/list.svg"
+        pageState = true
     }else{
         viewList()
     }
@@ -56,7 +57,8 @@ function viewList(){
         listView.classList.add('show')
         node_slider_container.classList.add('hide')
         list_slider_container.classList.add('hide')
-        document.getElementById('hub-icon').src = "./icons/star.svg"
+        document.getElementById('hub-icon').src = "./icons/list.svg"
+        pageState = false
     }
     
 }

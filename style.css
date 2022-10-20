@@ -652,7 +652,7 @@ input.submit-input{
   width: 55px;
   margin-bottom: 2vh;
   flex-direction: row;
-  gap: 30px;
+  gap: 20px;
   height: 55px;
 }
 
@@ -698,8 +698,8 @@ img.plus-img{
 }
 
 #slider-buttons-list button{
-  color: white;
-  background-color: rgb(32, 32, 32);
+  background-color: white;
+  color: rgb(32, 32, 32);
   border-radius: 15px;
   padding: 5px;
   padding-left: 10px;
@@ -718,8 +718,8 @@ img.plus-img{
 }
 
 #slider-buttons button{
-  color: white;
-  background-color: rgb(32, 32, 32);
+  background-color: white;
+  color: rgb(32, 32, 32);
   border-radius: 15px;
   padding: 5px;
   padding-left: 10px;
@@ -738,32 +738,32 @@ img.plus-img{
 
 
 #relationship-slider-button.off{
-  color: black;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 
 #term-slider-button.off{
-  color: black;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 #term-slider-button-all.off{
-  color: black;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 #term-slider-button-1.off{
-  color: black;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 #term-slider-button-2.off{
-  color: black;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 #term-slider-button-3.off{
-  color: black;
-  background-color: white;
+  background-color: black;
+  color: white;
 }
 
 .lang-buttons{
@@ -932,176 +932,3 @@ img.plus-img{
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
-
-/*
-
-@media only screen and (max-width: 1800px) {
-  .overlaytest {
-    width: 60%; 
-    height: 100%; 
-    left: 20vw; 
-  }
-  .main-app.blur{
-    filter: saturate(30%);
-  }
-
-  #slider-buttons button{
-    width: 10vw;
-  }
-
-  .big-buttons img{
-    width: 4vw;
-  }
-  img.plus-img{
-    width: 20px;
-    height: auto;
-  }
-  #loader{
-    left: 42vw;
-  }
-}
-
-@media only screen and (max-width: 1480px) {
-
-  #slider-buttons button{
-    width: 12vw;
-    font-size: 10pt;
-  }
-
-  .big-buttons img{
-    width: 5vw;
-  }
-
-  .lang-buttons{
-    right: 40vw
-  }
-  img.plus-img{
-    width: 20px;
-    height: auto;
-  }
-  .listView-button{
-    width: 30vw;
-  
-  }
-}
-
-@media only screen and (max-width: 1200px) {
-
-  #slider-buttons button{
-    width: 16vw;
-    font-size: 10pt;
-  }
-
-  .big-buttons img{
-    width: 7vw;
-  }
-
-  .ui-buttons{
-    margin-left: 4vw;
-  }
-  
-  .lang-buttons{
-    right: 38vw
-  }
-  img.plus-img{
-    width: 20px;
-    height: auto;
-  }
-
-  
-}
-
-@media only screen and (max-width: 830px) {
-
-  #slider-buttons button{
-    width: 20vw;
-    font-size: 10pt;
-  }
-
-  .big-buttons img{
-    width: 8vw;
-  }
-
-  .ui-buttons{
-    margin-left: 4vw;
-  }
-  img.plus-img{
-    width: 20px;
-    height: auto;
-  }
-  #loader{
-    left: 29vw;
-  }
-  #comment-section{
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-
-  #slider-buttons button{
-    width: 30vw;
-    font-size: 10pt;
-  }
-
-  .big-buttons img{
-    width: 13vw;
-  }
-
-  .ui-buttons{
-    margin-left: 4vw;
-  }
-
-  .lang-buttons{
-    right: 30vw
-  }
-  img.plus-img{
-    width: 20px;
-    height: auto;
-  }
-  #loader{
-    left: 15vw;
-  }
-  .listView-button{
-    width: 40vw;
-    
-  }
-  .tlInner{
-    padding-top: 30vh;
-  }
-  #content-paragraph{
-    font-size: 12pt;
-  }
-  .read-more-btn{
-    font-size: 12pt;
-  }
-  .related-button{
-    font-size: 12pt;
-  }
-  #cont-header{
-    font-size: 18pt;
-  }
-  #cont-header-lvl{
-    font-size: 14pt;
-  }
-  .read-more-text{
-    font-size: 12pt;
-  }
-  .cont-header-2{
-    font-size: 18pt;
-  }
-  .cont-head-2{
-    font-size: 14pt;
-  }
-  .read-more-cont-arrow{
-    font-size: 12pt;
-  }
-  .content-paragraph-2-b{
-    font-size: 12pt;
-  }
-
-
-  
-}
-
-*/

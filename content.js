@@ -372,8 +372,10 @@ function contentList(){
 
 
 function dropdownList(){
-    let elemColour = ""
-    termDB.forEach(x => {
+
+    const ddList = sortAZ()
+
+    ddList.forEach(x => {
         
         tempTerm = x.term
         tempLvl = x.level
@@ -389,7 +391,7 @@ function dropdownList(){
             console.log(event.target.id)
             //closeWindow()
             rb_filter = (termDB.filter(term => term.term == event.target.id))
-            contentWindow(rb_filter[0].index)
+            termFocusList(rb_filter[0].term)
             dropdown_category.innerHTML = rb_filter[0].term
             termLevel = rb_filter[0].level
             dropdown_menu_list.classList.toggle('show')
@@ -426,4 +428,8 @@ function dropdownList(){
         dropdown_menu_list.appendChild(dropdownElement)
     })
     
+}
+
+function sortAZ(){
+    return termDB.sort((a, b) => a.term.localeCompare(b.term))
 }
