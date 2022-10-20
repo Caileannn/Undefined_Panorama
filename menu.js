@@ -63,30 +63,44 @@ function viewList(){
 
 function toggleLvl1List(){
     showAllTerms = false;
+    term_slider_btn_all.classList.add('off')
     if(showLvl1Terms){
         showLvl1Terms = false
+        term_slider_btn_1.classList.add('off')
+        
     }else{
         showLvl1Terms = true
+        term_slider_btn_1.classList.remove('off')
+        
     }
     contentList()
 }
 
 function toggleLvl2List(){
     showAllTerms = false;
+    term_slider_btn_all.classList.add('off')
     if(showLvl2Terms){
         showLvl2Terms = false
+        term_slider_btn_2.classList.add('off')
     }else{
         showLvl2Terms = true
+        term_slider_btn_2.classList.remove('off')
+        
     }
     contentList()
 }
 
 function toggleLvl3List(){
     showAllTerms = false;
+    term_slider_btn_all.classList.add('off')
     if(showLvl3Terms){
         showLvl3Terms = false
+        term_slider_btn_3.classList.add('off')
+        
     }else{
         showLvl3Terms = true
+        term_slider_btn_3.classList.remove('off')
+
     }
     contentList()
 }
@@ -94,11 +108,16 @@ function toggleLvl3List(){
 function toggleAllTerms(){
     if(showAllTerms){
         showAllTerms = false
+        //term_slider_btn_all.classList.add('off')
     }else{
         showAllTerms = true
         showLvl1Terms = true
         showLvl2Terms = true
         showLvl3Terms = true
+        term_slider_btn_all.classList.remove('off')
+        term_slider_btn_1.classList.remove('off')
+        term_slider_btn_2.classList.remove('off')
+        term_slider_btn_3.classList.remove('off')
     }
     contentList()
 }

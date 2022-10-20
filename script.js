@@ -124,6 +124,11 @@ var showAllTerms = false;
 var list_slider_container = document.getElementById('slider-buttons-list')
 var node_slider_container = document.getElementById('slider-buttons')
 
+var term_slider_btn_all = document.getElementById('term-slider-button-all')
+var term_slider_btn_1 = document.getElementById('term-slider-button-1')
+var term_slider_btn_2 = document.getElementById('term-slider-button-2')
+var term_slider_btn_3 = document.getElementById('term-slider-button-3')
+
 const view = d3.select('body').append('svg')
         .attr("width", width)
         .attr("height", height)

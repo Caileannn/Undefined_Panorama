@@ -372,11 +372,14 @@ function contentList(){
 
 
 function dropdownList(){
-
+    let elemColour = ""
     termDB.forEach(x => {
         
         tempTerm = x.term
         tempLvl = x.level
+
+        
+
         dropdownElement = document.createElement('p')
         dropdownElement.className = "dropdown-element"
         dropdownElement.id = tempTerm
@@ -401,6 +404,24 @@ function dropdownList(){
             }
 
         })
+
+        dropdownElement.addEventListener("mouseenter", event =>{   
+            rb_filter = (termDB.filter(term => term.term == event.target.id))
+            tempLvl = rb_filter[0].level
+            switch(tempLvl){
+                case 1: 
+                    return event.target.style.color = "blue"
+                case 2:
+                    return event.target.style.color = "#15E115"
+                case 3:
+                    return event.target.style.color = "red"
+            }
+          });
+          dropdownElement.addEventListener("mouseleave", event => {   
+            event.target.style.color = "";
+          });
+
+        
        
         dropdown_menu_list.appendChild(dropdownElement)
     })
