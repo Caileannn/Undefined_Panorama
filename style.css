@@ -5,6 +5,10 @@
     stroke-opacity: 0.6;
   }
 
+  a, a:visited, a:active {
+    color: inherit;
+  }
+
   .nodes circle {
     stroke: #fff;
     stroke-width: 1.5px;
@@ -184,7 +188,11 @@ svg{
 }
 
 .overlaytest{
-  position: fixed; z-index:903; width: 40%; height: 100%; left: 30vw; 
+  position: fixed; z-index:903; 
+  width: 700px; 
+  height: 100%; 
+  left: 50%;
+  margin-left: -350px; 
   overflow: auto;
   display: none;
   animation: open 0.3s;
@@ -268,9 +276,10 @@ svg{
   background-color: #0008ff;
   color:white;
   align-items: center;
-  padding-top: 30px;
-  padding-bottom: 25px;
-  align-items: baseline;
+ 
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .cont-head-2{
@@ -310,9 +319,12 @@ svg{
 #cont-header{
   margin-left: 5%;
   font-style: bold;
-  font-size: 22pt;
+  font-size: 24pt;
   margin-top: 0px;
   margin-bottom: 0px;
+  height: fit-content;
+  word-wrap: normal;
+  text-overflow:ellipsis;
 }
 
 #cont-header-2{
@@ -340,7 +352,7 @@ svg{
   margin-right: 5%;
   text-align: center;
   font-style: normal;
-  font-size: 18pt;
+  font-size: 10pt;
   margin-top: 0px;
   margin-bottom: 0px;
 
@@ -629,24 +641,30 @@ input.submit-input{
 .ui-buttons{
   z-index: 10;
   position: fixed;
-  margin-left: 2vw;
-  margin-top: 4vh;
+  margin-left: 20px;
+  margin-top: 20px;
   font-family: 'Gothic A1', sans-serif;
+  width: 150px;
 }
 
 .big-buttons{
   display: flex;  
-  width: fit-content;
+  width: 55px;
   margin-bottom: 2vh;
   flex-direction: row;
   gap: 30px;
+  height: 55px;
 }
 
 .big-buttons img{
-  width: 3vw;
+  width: 55px;
   height: auto;
   cursor: pointer;
-  filter: drop-shadow(0 0 0.25rem rgba(31, 29, 29, 0.712));
+  filter: drop-shadow(0px 0px 0px 1px rgb(48 52 58 / 55%));
+}
+
+.big-buttons img:hover{
+  filter: invert(100%);
 }
 
 img.plus-img{
@@ -659,7 +677,7 @@ img.plus-img{
 #slider-buttons{
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 }
 
 #slider-buttons.hide{
@@ -669,8 +687,11 @@ img.plus-img{
 #slider-buttons-list{
   display: none;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
+  width: 150px;
+  height: 26px;
 }
+
 
 #slider-buttons-list.hide{
   display: flex;
@@ -685,9 +706,15 @@ img.plus-img{
   text-align: left;
   box-shadow: 0px 0px 10px rgba(48, 52, 58, 0.548);
   cursor: pointer;
-  font-size: 11pt;
+  font-size: 10pt;
   width: 8vw;
+  min-width: 150px;
   border: none;
+  height: 26px;
+}
+
+#slider-buttons-list button:hover{
+  color: #828282;
 }
 
 #slider-buttons button{
@@ -697,17 +724,24 @@ img.plus-img{
   padding: 5px;
   padding-left: 10px;
   text-align: left;
-  box-shadow: 0px 0px 10px rgba(48, 52, 58, 0.548);
+  box-shadow: 0px 0px 1px rgba(48, 52, 58, 0.548);
   cursor: pointer;
-  font-size: 11pt;
-  width: 8vw;
+  font-size: 10pt;
+  width: 150px;
+  height: 26px;
   border: none;
 }
+
+#slider-buttons button:hover{
+  color: #828282;
+}
+
 
 #relationship-slider-button.off{
   color: black;
   background-color: white;
 }
+
 
 #term-slider-button.off{
   color: black;
@@ -744,11 +778,10 @@ img.plus-img{
 }
 
 .tlInner{
-  margin-left: 20vw;
-  margin-right: 20vw;
+  
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
   padding-top: 15vh;
   padding-bottom: 10vh;
   justify-content: center;
@@ -761,22 +794,109 @@ img.plus-img{
   color: #000000;
   padding: 10px;
   font-style: bold;
-  text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 14pt;
+  font-size: 18pt;
   cursor: pointer;
   height: fit-content;
-  width: 20vw;
+  max-width: fit-content;
+  min-width: 300px;
+  min-height: 34px;
+  max-height: fit-content;
   border-radius: 40px;
   margin-right: 2%;
   justify-content: center;
-
+  align-items: center;
 }
 
 .termList.show{
   display: block;
 }
+
+.dropdown{
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  display: inline-block;
+}
+
+#dropdown-btn{
+  color: white;
+  background-color: rgb(32, 32, 32);
+  border-radius: 15px;
+  padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: left;
+  box-shadow: 0px 0px 1px rgb(48 52 58 / 55%);
+  cursor: pointer;
+  font-size: 11pt;
+  width: 250px;
+  height: 26px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#dropdown-btn.show{
+  background-color: white;
+  color: rgb(32, 32, 32);
+}
+
+#dropdown-btn.hide{
+  display: none;
+}
+
+
+#main-dropdown-menu{
+  position: absolute;
+  background-color: white;
+  width: 200px;
+  max-height: 500px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 20px;
+  margin-top: 25px;
+  padding: 20px;
+  display: none;
+  flex-direction: column;
+}
+
+#main-dropdown-menu.show{
+  position: absolute;
+  background-color: white;
+  min-width: 210px;
+  max-height: 500px;
+  overflow: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.1);
+  z-index: 1;
+  border-radius: 20px;
+  margin-top: 25px;
+  padding: 20px;
+  display: flex;
+  gap: 2px;
+  flex-direction: column;
+}
+
+#main-dropdown-menu a{
+  text-decoration: none;
+  font-size: 11pt;
+}
+
+#main-dropdown-menu a:hover{
+  color: #0008ff;
+  font-size: 11pt;
+}
+
+.dropdown-element{
+  text-decoration: none;
+  font-size: 11pt;
+  cursor: pointer;
+  margin: 0;
+}
+
 
 @keyframes open {
   0%   { transform: translateY(100%); }
@@ -794,6 +914,8 @@ img.plus-img{
   width: 0px;
   background: transparent; /* make scrollbar transparent */
 }
+
+/*
 
 @media only screen and (max-width: 1800px) {
   .overlaytest {
@@ -963,3 +1085,5 @@ img.plus-img{
 
   
 }
+
+*/

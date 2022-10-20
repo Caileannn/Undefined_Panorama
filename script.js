@@ -89,6 +89,10 @@ var exitButton = document.getElementById('cont-header-close')
 var relatedButton = document.querySelector('.related-button')
 var listView = document.querySelector('.termList')
 var lv_button_container = document.querySelector('.tlInner')
+var dropdown_menu_list = document.querySelector('#main-dropdown-menu')
+var dropdown_btn = document.querySelector('#dropdown-btn')
+var dropdown_arrow = document.querySelector('.dropdown-arrow')
+var dropdown_category = document.querySelector('#dropdown-category')
 
 var imgSize1 = 3000;
 var imgSize2 = 1000;
@@ -136,6 +140,8 @@ const promise1 = new Promise((resolve, reject) => {
     engLang.addEventListener('click', reject)
   })
 
+
+
 //Start Simulation 
 initSim()
 
@@ -144,6 +150,7 @@ resetViewport()
 
 //Assign SVG Element
 setSVG()
+
 
 
 // Simulation init
@@ -156,6 +163,7 @@ async function initSim(){
     await parseNodeDB()
     addContentListner()
     contentList()
+    dropdownList()
      simulation = d3
         .forceSimulation(termDB)
         .force("link", d3.forceLink().distance(link_distance_alter).id(function(d) {

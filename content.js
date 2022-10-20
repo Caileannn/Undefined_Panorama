@@ -250,6 +250,17 @@ function termFocus(){
     nodeFocus(termX, termY)
 }
 
+function termFocusList(text){
+    // get the x and y coordinates of term name/image
+    // term.name => look for term in SVG 
+    var findTerm = text.replace(/ /g,'')
+    findTerm = '#xy' + findTerm.replace(/\./g, "") + "-focus"
+    var foundTerm = document.querySelector(findTerm)
+    var termX = parseInt(foundTerm.getAttribute('x'))
+    var termY = parseInt(foundTerm.getAttribute('y'))
+    nodeFocus(termX, termY)
+}
+
 
 
 function toggleOffOn(elem, checkElem){
@@ -357,4 +368,41 @@ function contentList(){
                 return lv_button.style.color = "red"
         }
     })
+}
+
+
+function dropdownList(){
+
+    termDB.forEach(x => {
+        
+        tempTerm = x.term
+        tempLvl = x.level
+        dropdownElement = document.createElement('p')
+        dropdownElement.className = "dropdown-element"
+        dropdownElement.id = tempTerm
+        dropdownElement.innerHTML = tempTerm
+
+        dropdownElement.addEventListener('click', event=>{
+            console.log(event.target.id)
+            //closeWindow()
+            rb_filter = (termDB.filter(term => term.term == event.target.id))
+            contentWindow(rb_filter[0].index)
+            dropdown_category.innerHTML = rb_filter[0].term
+            termLevel = rb_filter[0].level
+            dropdown_menu_list.classList.toggle('show')
+            dropdown_btn.classList.add('show')
+            switch(termLevel){
+                case 1: 
+                    return dropdown_category.style.color = "blue"
+                case 2:
+                    return dropdown_category.style.color = "#15E115"
+                case 3:
+                    return dropdown_category.style.color = "red"
+            }
+
+        })
+       
+        dropdown_menu_list.appendChild(dropdownElement)
+    })
+    
 }

@@ -32,6 +32,7 @@ function viewGraph(){
     if(!showNetwork){
         showNetwork = true
         showList = false
+        dropdown_btn.classList.toggle('hide')
         svg_body.classList.remove('hide')
         listView.classList.remove('show')
         node_slider_container.classList.remove('hide')
@@ -47,6 +48,8 @@ function viewList(){
     console.log("list")
     
     if(!showList){
+        //turn off list
+        dropdown_btn.classList.toggle('hide')
         showNetwork = false
         showList = true
         svg_body.classList.add('hide')
@@ -98,4 +101,11 @@ function toggleAllTerms(){
         showLvl3Terms = true
     }
     contentList()
+}
+
+function toggleDropDownMenu(){
+    dropdown_menu_list.classList.toggle('show')
+    
+
+    dropdown_arrow.textContent = dropdown_arrow.textContent.includes('˅') ? "˄" : "˅"
 }
