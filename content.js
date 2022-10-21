@@ -20,6 +20,7 @@ var lv_button
 // The main content container
 
 async function contentWindow(term_index){
+    //closeInformationLayer()
     parseData(term_index)
     checkReadMoreText()
     termFocus()
@@ -156,13 +157,12 @@ async function pushTermButton(ex){
 
     related_button.addEventListener('click', event=>{
         console.log(event.target.id)
-        //closeWindow()
         rb_filter = (termDB.filter(term => term.term == event.target.id))
         contentWindow(rb_filter[0].index)
         
     })
 
-    //console.log(nodeLevel)
+    
     related_container.appendChild(related_button)
     
     //Change color based on level
@@ -178,6 +178,7 @@ async function pushTermButton(ex){
 }
 
 async function closeWindow(){
+    const information_button = document.querySelector('.information-button')
     content_window.className = "otclose"
     content_X.id = "cont-header-close-close"
     await delay(250)
@@ -187,12 +188,33 @@ async function closeWindow(){
     content_X.id = "cont-header-close"
     svg_body.classList.toggle('blur') 
     blurActive = false
+    information_button.style.display = "block"
 }
 
 function openWindow(){
-    
+    closeInformationLayer()
+    const information_button = document.querySelector('.information-button')
     content_window.style.display = "block"
     content_X.style.display = "block"
+    information_button.style.display = "none"
+}
+
+
+function openInformationLayer(){
+    const information_layer = document.getElementById('information-layer')
+    const information_X = document.getElementById('information-close')
+    information_layer.style.display = "block"
+    information_X.style.display = "block"
+    dropdown_btn.style.display = "none"
+    
+}
+
+function closeInformationLayer(){
+    const information_X = document.getElementById('information-close')
+    const information_layer = document.getElementById('information-layer')
+    information_layer.style.display = "none"
+    information_X.style.display = "none"
+    dropdown_btn.style.display = "flex"
 }
 
 function delay(ms){
@@ -206,13 +228,16 @@ function addContentListner(){
 parentContainer.addEventListener('click', event=>{
     const current = event.target
     const isReadMoreBtn = current.className.includes('read-more-btn')
+    const arrowRM = document.querySelector('.read-more-arrow')
 
     if(!isReadMoreBtn) return;
 
     const currentText = event.target.parentNode.querySelector('.read-more-text')
     currentText.classList.toggle('read-more-text--show')
 
-    current.textContent = current.textContent.includes('>> Read More') ? "<< Read Less" : ">> Read More"
+    current.textContent = current.textContent.includes('Read More ˅') ? "Read Less ˄" : "Read More ˅"
+
+    
 })
 
 
@@ -238,7 +263,7 @@ parentContainerArrow.addEventListener('click', event=>{
     const currentText = event.target.parentNode.querySelector('.content-paragraph-2-b')
     currentText.classList.toggle('content-paragraph-2-b--show')
 
-    current.textContent = current.textContent.includes('˅') ? "^" : "˅"
+    current.textContent = current.textContent.includes('˅') ? "˄" : "˅"
 })
 
 

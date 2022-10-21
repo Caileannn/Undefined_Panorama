@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
+textarea{
+  font-family: 'Gothic A1', sans-serif;
+}
+
 *:focus {
   outline: none;
 }  
@@ -376,15 +380,27 @@ svg{
 }
 
 #cont-header-close{
-  margin-left: 5%;
-  margin-right: 5%;
-  position: absolute;
-  top:-5px;
-  right:0px;
+  
+  position: fixed;
+  top:25px;
+  right:25px;
   z-index:903; 
-  overflow: auto;
   display: none;
   animation: open 0.3s;
+  width: 55px;
+  height: 55px;
+}
+
+#information-close{
+  position: fixed;
+  top:25px;
+  right:25px;
+  z-index:903; 
+  width: 55px;
+  height: 55px;
+  display: none;
+  animation: open 0.3s;
+  cursor: pointer;
 }
 
 .cont-header-lvl{
@@ -398,14 +414,15 @@ svg{
 }
 
 #cont-header-close-close{
-  margin-left: 5%;
-  margin-right: 5%;
-  position: absolute;
-  top:0px;
-  right:0px;
+
+  position: fixed;
+  top:25px;
+  right:25px;
   z-index:903; 
-  overflow: auto;
+  width: 55px;
+  height: 55px;
   display: none;
+
   animation: close 0.3s;
 }
 
@@ -415,6 +432,12 @@ svg{
   margin-right: 25px;
   font-size: 18pt;
   word-wrap: break-word;
+}
+
+.read-more-arrow{
+  height: 20px;
+  filter: invert(100%);
+
 }
 
 .read-more-cont-arrow{
@@ -472,7 +495,11 @@ svg{
   line-height: 27px;
   font-weight: 400;
   font-style: normal;
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .read-more-btn.hide{
@@ -505,6 +532,7 @@ svg{
   font-size: 16pt;
   line-height: 27px;
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .related-container{
@@ -664,6 +692,7 @@ svg{
   justify-content: space-between;
   margin: 25px;
   gap: 20px;
+  font-weight: 500;
 }
 
 .comment-form input{
@@ -675,13 +704,13 @@ svg{
   display: flex;
   flex-direction: row;
   justify-content: left;
-  gap: 30px;
+  gap: 10px;
 }
 .comment-email-box{
   display: flex;
   flex-direction: row;
   justify-content: left;
-  gap: 30px;
+  gap: 10px;
 }
 
 .comment-comment-box{
@@ -697,9 +726,10 @@ svg{
 }
 
 #fname-text{
-  width: 70px;
+  width: 65px;
   text-align: left;
   height: 25px;
+  font-size: 12pt;
 }
 
 #email{
@@ -708,19 +738,22 @@ svg{
 }
 
 #email-text{
-  width: 70px;
+  width: 65px;
   text-align: left;
   height: 25px;
+  font-size: 12pt;
 }
 
 #comment{
   padding: 0 0 115px;
+  word-wrap: break-word;
 }
 
 #comment-text{
   width: 70px;
   text-align: left;
   height: 25px;
+  font-size: 12pt;
 }
 
 
@@ -753,7 +786,7 @@ input.submit-input{
 }
 
 #comment-title h1{
-  font-size: 18pt;
+  font-size: 20pt;
 }
 
 
@@ -761,8 +794,8 @@ input.submit-input{
 .ui-buttons{
   z-index: 10;
   position: fixed;
-  margin-left: 20px;
-  margin-top: 20px;
+  margin-left: 25px;
+  margin-top: 25px;
   font-family: 'Gothic A1', sans-serif;
   width: 150px;
 }
@@ -796,7 +829,7 @@ img.plus-img{
 
 #slider-buttons{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 10px;
 }
 
@@ -953,9 +986,15 @@ img.plus-img{
 
 .dropdown{
   position: fixed;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 25px;
   display: inline-block;
+}
+
+.dropdown-arrow{
+  filter: invert(100%);
+  object-fit: contain;
+  width: 15px;
 }
 
 #dropdown-btn{
@@ -1033,6 +1072,82 @@ img.plus-img{
   font-size: 11pt;
   cursor: pointer;
   margin: 0;
+}
+
+#information-layer{
+  position: fixed;
+  z-index: 903;
+  width: 800px;
+  height: 100%;
+  left: 50%;
+  margin-left: -350px;
+  overflow: auto;
+  display: none;
+  animation: open 0.3s;
+  
+}
+
+.information-layer-main{
+  display: block;
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    text-align: left;
+    font-size: 1em;
+    background-color: #333333;
+    opacity: 0.9;
+    border-radius: 2px;
+    line-height: 27px;
+    box-shadow: 0 0 1rem rgb(0 0 0 / 10%);
+    color: white;
+}
+
+.information-layer-header{
+    display: flex;
+    justify-content: space-between;
+    background-color: #0008ff;
+    color: white;
+    align-items: center;
+    padding-left: 25px;
+    
+}
+
+.information-layer-text{
+  font-size: 16pt;
+  line-height: 27px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.information-button{
+  z-index: 10;
+  position: fixed;
+  margin-left: 25px;
+  bottom: 0px;
+  font-family: 'Gothic A1', sans-serif;
+
+}
+
+.info-buttons{
+    width: 30px;
+    margin-bottom: 25px;
+    flex-direction: row;
+    
+    height: 30px;
+
+}
+
+
+.info-buttons img:hover{
+  filter: invert(100%);
+  cursor: pointer;
+
 }
 
 

@@ -25,13 +25,11 @@
 
     <div class="ui-buttons">
         <div class="big-buttons">
-            <div class="node-buttons" ><img id="hub-icon" onclick="viewGraph()" src="./icons/star.svg" alt=""><!--<img class="plus-img" src="./icons/plus.svg" alt=""> --></div>
-            <div class="home-buttons"><img src="./icons/home.svg" alt="" onclick="resetViewport()"><!--<img class="plus-img" src="./icons/plus.svg" alt="" onclick="resetViewport()">--></div>
-           
-        </div>
-        <div id="slider-buttons">
-            <button id="relationship-slider-button" onclick="toggleRelations()">Show relationships</button>
-            <button id="term-slider-button" onclick="toggleTerms()">Show terms</button>
+            <div class="node-buttons" ><img id="hub-icon" onclick="viewGraph()" src="./icons/star.svg" alt="star"></div>
+            <div id="slider-buttons">
+                <button id="relationship-slider-button" onclick="toggleRelations()">Show relationships</button>
+                <button id="term-slider-button" onclick="toggleTerms()">Show terms</button>
+            </div>
         </div>
         <div id="slider-buttons-list">
             <button id="term-slider-button-all" onclick="toggleAllTerms()">Show all terms</button>
@@ -39,6 +37,10 @@
             <button id="term-slider-button-2" onclick="toggleLvl2List()">Show level 2 terms</button>
             <button id="term-slider-button-3" onclick="toggleLvl3List()">Show level 3 terms</button>
         </div>
+    </div>
+
+    <div class="information-button">
+        <div class="info-buttons"><img src="./icons/info.svg" alt="info" onclick="openInformationLayer()"></div>
     </div>
 
     <div class="lang-buttons">
@@ -49,16 +51,33 @@
     <div class="dropdown">
         <button id="dropdown-btn" onclick="toggleDropDownMenu()">
             <span id="dropdown-category">Choose a topic</span>
-            <span class="dropdown-arrow">^</span>
+            <img class="dropdown-arrow" src="./icons/arrow-up.svg">
         </button>
         <div id="main-dropdown-menu">
             <!--contents-->
         </div>
     </div>
 
+   
+    <div id="information-layer">
+        <div class="information-layer-main">
+            <div class="information-layer-header">
+                <h1>Undefined Panorama</h1>
+            </div>
+            <div class="information-layer-text">
+                <p>Panorama If you unravel Undefined Panorama, it is an unintelligible unfolding scene. Panorama, which appeared in the 18th century, is to see a scene so wide that it cannot be fully seen by the viewer. Numerous forms appear in the unfolding scene of Undefined Panorama. People who are helpless due to disasters or accidents, office workers who have fallen to the ground from drunkenness, homeless people, people who have been fired from their jobs, people who fight, and people who are sprinting in seconds for secular success in modern society, and the future of their descendants Parents who are dedicated</p>
+            </div>
+        </div>    
+            
+
+    </div>
+   
     <p id="loader">(Loading Network)</p>
 
-    <h1 id="cont-header-close">&#10006</h1>
+  
+    <img id="cont-header-close" src="./icons/x.svg">
+    
+    <img id="information-close" src="./icons/x.svg" onclick="closeInformationLayer()">
 
     
 
@@ -68,10 +87,12 @@
             <div class="cont-head">
                 <h1 id="cont-header">Header</h1><h1 class="cont-header-lvl">Level 1</h1>
             </div>
-            <div class="read-more-cont">
+        <div class="read-more-cont">
             <p id="content-paragraph"></p>
             <p class="read-more-text"></p>
-            <span class="read-more-btn">>> Read More</span>
+            <span class="read-more-btn">
+                Read More ˅
+            </span>
         </div>
         <h2 class="related-cont">Relations:</h2>
             <div class="related-container">
@@ -85,7 +106,7 @@
             <div class="read-more-cont-arrow">
                 <p class="content-paragraph-2-s"></p>
                 <p class="content-paragraph-2-b"></p>
-                <div class="content-exp">˅</div>
+                <div class="content-exp">˄</div>
                 <!--<div class="comments">Comments coming soon!</div>-->
             </div>
             
@@ -110,19 +131,19 @@
 
             <form class="comment-form" action="/action_page.php" onsubmit="return newComment()">
                 <div class="comment-name-box">
-                    <label for="fname" id="fname-text">Name</label>
+                    <label for="fname" id="fname-text">Name:</label>
                     <input type="text" id="fname" name="fname">
                 </div>
                 <div class="comment-email-box">
-                    <label for="email" id="email-text">E-mail</label>
+                    <label for="email" id="email-text">E-mail:</label>
                     <input type="text" id="email" name="email">
                 </div>
                 <div class="comment-comment-box">
                     <label for="comment" id="comment-text">Thoughts:</label>
-                    <input type="text" id="comment" name="comment">
+                    <textarea type="text" id="comment" name="comment"></textarea>
                 </div>
                 
-                <input type="submit" value="Submit" class="submit-input">
+                <input type="submit" value="Add" class="submit-input">
               </form>
         </div>
         </div>

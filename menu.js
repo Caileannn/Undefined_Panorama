@@ -27,12 +27,11 @@ function toggleTerms(){
 }
 
 function viewGraph(){
-    console.log("show")
-    
     if(!showNetwork){
+        const ddbutton = document.querySelector('.dropdown')
+        ddbutton.style.display = "inline"
         showNetwork = true
         showList = false
-        dropdown_btn.classList.toggle('hide')
         svg_body.classList.remove('hide')
         listView.classList.remove('show')
         node_slider_container.classList.remove('hide')
@@ -46,11 +45,10 @@ function viewGraph(){
 }
 
 function viewList(){
-    console.log("list")
-    
     if(!showList){
         //turn off list
-        dropdown_btn.classList.toggle('hide')
+        const ddbutton = document.querySelector('.dropdown')
+        ddbutton.style.display = "none"
         showNetwork = false
         showList = true
         svg_body.classList.add('hide')
@@ -150,7 +148,18 @@ function toggleAllTerms(){
 
 function toggleDropDownMenu(){
     dropdown_menu_list.classList.toggle('show')
+    const arrow_img = document.querySelector('.dropdown-arrow')
+    arrow_img.style.webkitFilter = "invert(0)"
+    if(menuOpen){
+        //close
+        arrow_img.src = "./icons/arrow-up.svg"
+        menuOpen = false
+    }else{
+        arrow_img.src = "./icons/arrow-down-up.svg"
+        menuOpen = true
+    }
     
 
-    dropdown_arrow.textContent = dropdown_arrow.textContent.includes('˅') ? "˄" : "˅"
+
+    //dropdown_arrow.textContent = dropdown_arrow.textContent.includes('˅') ? "˄" : "˅"
 }

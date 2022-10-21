@@ -82,7 +82,7 @@ var svg_body
 //Content Window Variables + Modal
 var content_window = document.querySelector('.overlaytest')
 var content_X = document.querySelector('#cont-header-close')
-var parentContainer = document.querySelector('.read-more-cont')
+var parentContainer = document.querySelector('.read-more-btn')
 var parentContainerArrow = document.querySelector('.read-more-cont-arrow')
 var langContainer = document.querySelector('.lang-buttons')
 var exitButton = document.getElementById('cont-header-close')
@@ -119,6 +119,7 @@ var showLvl1Terms = true;
 var showLvl2Terms = true;
 var showLvl3Terms = true;
 var showAllTerms = true;
+var menuOpen = false
 
 //slider buttons query
 var list_slider_container = document.getElementById('slider-buttons-list')
