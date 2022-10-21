@@ -9,6 +9,7 @@ var b2_text
 var b2_source
 var b3_v_name
 var b3_v_link
+var b4_img_link
 var current_term
 var blurActive = false
 var related_button
@@ -25,6 +26,7 @@ async function contentWindow(term_index){
     appendContent()
     appendContent2()
     appendContentVideo()
+    appendContentImage()
     openWindow()
     blurBody()
 }
@@ -42,6 +44,8 @@ function parseData(term_in){
 
     b3_v_link = termDB[term_in].video_link
     b3_v_name = termDB[term_in].video_name
+
+    b4_img_link = termDB[term_in].content_image
 
 }
 
@@ -121,6 +125,15 @@ async function appendContentVideo(){
     //console.log(b3_v_link)
     video_container.src = b3_v_link
     toggleOffOn(video_overlay, b3_v_link)
+}
+
+
+async function appendContentImage(){
+    const img_container = document.getElementById("img-cont")
+    const img_overlay = document.getElementById("suboverlay-image")
+    console.log(b4_img_link)
+    img_container.src = b4_img_link
+    toggleOffOn(img_overlay, b4_img_link)
 }
 
 async function removeAllRelations(){
