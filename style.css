@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;700&family=IBM+Plex+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
-  .links line {
+*:focus {
+  outline: none;
+}  
+
+.links line {
     stroke: black;
     stroke-opacity: 0.6;
   }
@@ -189,7 +193,7 @@ svg{
 
 .overlaytest{
   position: fixed; z-index:903; 
-  width: 700px; 
+  width: 800px; 
   height: 100%; 
   left: 50%;
   margin-left: -350px; 
@@ -207,7 +211,7 @@ svg{
 
 #suboverlay{
   display: block;
-  margin-top: 5%;
+  margin-top: 20px;
   width: 100%;
   height: fit-content;
   align-content: center;
@@ -219,7 +223,7 @@ svg{
   background-color: #333333;
   opacity: 0.9;
   border-radius: 2px;
-  line-height: 1.4rem;
+  line-height: 27px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
 }
@@ -237,7 +241,7 @@ svg{
   font-size: 1em;
   background-color: #333333;
   border-radius: 2px;
-  line-height: 1.4rem;
+  line-height: 27px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
   opacity: 0.9;
@@ -260,7 +264,7 @@ svg{
   font-size: 1em;
   background-color: #333333;
   border-radius: 2px;
-  line-height: 1.4rem;
+  line-height: 27px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
   margin-bottom: 5vh;
@@ -301,8 +305,9 @@ svg{
 
 .content-exp{
   float: right;
-  font-size: 1.5rem;
-  margin-bottom: 5%;
+  font-size: 16pt;
+  margin-bottom: 25px;
+  margin-top: 25px;
   cursor: pointer;
   display: inline;
 }
@@ -317,9 +322,9 @@ svg{
 
 
 #cont-header{
-  margin-left: 5%;
+  margin-left: 25px;
   font-style: bold;
-  font-size: 24pt;
+  font-size: 22pt;
   margin-top: 0px;
   margin-bottom: 0px;
   height: fit-content;
@@ -328,8 +333,8 @@ svg{
 }
 
 #cont-header-2{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 25px;
+  margin-right: 25px;
   margin-top: 0px;
   margin-bottom: 0px;
   font-size: 22pt;
@@ -340,7 +345,7 @@ svg{
   margin-left: 5%;
   margin-right: 5%;
   position: absolute;
-  top:0px;
+  top:-5px;
   right:0px;
   z-index:903; 
   overflow: auto;
@@ -349,7 +354,7 @@ svg{
 }
 
 .cont-header-lvl{
-  margin-right: 5%;
+  margin-right: 25px;
   text-align: center;
   font-style: normal;
   font-size: 10pt;
@@ -372,15 +377,15 @@ svg{
 
 
 .read-more-cont{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 25px;
+  margin-right: 25px;
   font-size: 18pt;
   word-wrap: break-word;
 }
 
 .read-more-cont-arrow{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 25px;
+  margin-right: 25px;
   font-size: 1.1rem;
   word-wrap: break-word;
 }
@@ -393,27 +398,27 @@ svg{
 
 
 #content-paragraph{
-  font-size: 18pt;
-  line-height: 30px;
+  font-size: 16pt;
+  line-height: 27px;
   margin-bottom: 0;
   margin-top: 20px;
 }
 
 .content-paragraph-2-s{
-  font-size: 18pt;
-  line-height: 30px;
-  margin-bottom: 0px;
+  font-size: 16pt;
+  line-height: 27px;
+  margin-bottom: 10px;
 }
 
 .content-paragraph-2-b{
-  font-size: 18pt;
-  line-height: 30px;
+  font-size: 16pt;
+  line-height: 27px;
   display: none;
 }
 
 .content-paragraph-2-b--show{
-  font-size: 18pt;
-  line-height: 30px;
+  font-size: 16pt;
+  line-height: 27px;
   display: inline;
 }
 
@@ -429,8 +434,8 @@ svg{
 
 .read-more-btn{
   color: rgb(255, 255, 255);
-  font-size: 18pt;
-  line-height: 30px;
+  font-size: 16pt;
+  line-height: 27px;
   font-weight: 400;
   font-style: normal;
   display: inline;
@@ -448,8 +453,8 @@ svg{
 
 .read-more-text{
   display: none;
-  font-size: 18pt;
-  line-height: 30px;
+  font-size: 16pt;
+  line-height: 27px;
   margin-top: 20px;
 }
 
@@ -463,26 +468,26 @@ svg{
 
 .read-more-text--show{
   display: inline;
-  font-size: 18pt;
-  line-height: 30px;
+  font-size: 16pt;
+  line-height: 27px;
   margin-top: 20px;
 }
 
 .related-container{
-  margin-left: 5%;
-  margin-right: 5%;
+  margin-left: 25px;
+  margin-right: 25px;
   display: flex;
   justify-content: start;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
   gap: 20px 0px;
 
 }
 
 .related-cont{
-  margin-left: 5%;
-  margin-right: 5%;
-  margin-top:20px;
+  margin-left: 25px;
+  margin-right: 25px;
+  margin-top:25px;
   font-size: 1.2rem;
 }
 
@@ -491,6 +496,8 @@ svg{
   border: none;
   color: #000000;
   padding: 10px;
+  padding-left: 17px;
+  padding-right: 17px;
   font-style: bold;
   text-align: center;
   text-decoration: none;
@@ -611,7 +618,7 @@ svg{
   background-color: #333333;
   opacity: 0.9;
   border-radius: 2px;
-  line-height: 1.4rem;
+  line-height: 27px;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);  
   color: white;
   justify-items: baseline;
@@ -619,24 +626,103 @@ svg{
 
 .comment-form{
   display: flex;
-  flex-direction: row;
-  align-content: center;
+  flex-direction: column;
   justify-content: space-between;
-  margin: 5%;
+  margin: 25px;
+  gap: 20px;
 }
 
 .comment-form input{
-  border-radius: 10px;
-  background-color: #333333;
-  color: white;
+  color: #333333;
+  background-color: white;
 }
 
-input.submit-input{
-  background-color: white;
-  color: #333333;
-  width: 10%;
-  cursor: pointer;
+.comment-name-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 30px;
 }
+.comment-email-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  gap: 30px;
+}
+
+.comment-comment-box{
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 2px;
+}
+
+#fname{
+  width:100%;
+  height: 26px;
+}
+
+#fname-text{
+  width: 70px;
+  text-align: left;
+  height: 25px;
+}
+
+#email{
+  width: 100%;
+  height: 26px;
+}
+
+#email-text{
+  width: 70px;
+  text-align: left;
+  height: 25px;
+}
+
+#comment{
+  padding: 0 0 115px;
+}
+
+#comment-text{
+  width: 70px;
+  text-align: left;
+  height: 25px;
+}
+
+
+input.submit-input{
+  cursor: pointer;
+  background-color: #9C9C9C;
+  border: none;
+  color: #000000;
+  padding: 5px;
+  padding-left: 17px;
+  padding-right: 17px;
+  font-style: bold;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13pt;
+  cursor: pointer;
+  height: fit-content;
+  width: 100px;
+  border-radius: 40px;
+  margin-left: 45%;
+}
+
+#comment-title{
+  display: block;
+  text-align: left;
+  margin: 20px;
+  margin-top: 25px;
+  font-size: 18pt;
+}
+
+#comment-title h1{
+  font-size: 18pt;
+}
+
+
 
 .ui-buttons{
   z-index: 10;

@@ -292,11 +292,12 @@ async function fetchComments(term_target){
 
 function newComment(){
     var nameValue = document.getElementById("fname").value;
+    var emailValue = document.getElementById("email").value;
     var commentValue = document.getElementById("comment").value;
     var termValue = b1_title
     var date = getDateComments()
     axios.post('https://sheetdb.io/api/v1/2ybgndb2ws51t',{
-        "data": {"name": nameValue, "comment": commentValue, 'date': date, "term": termValue}
+        "data": {"name": nameValue, "e-mail": emailValue, "comment": commentValue, 'date': date, "term": termValue}
     }).then( response => {
         console.log(response.data);
     });
@@ -313,7 +314,6 @@ function getDateComments(){
 }
 
 function contentList(){
-    const rel_buttons_cont = document.querySelector('.related-container')
     lv_button_container.innerHTML = ''
     var listArray = []
     //Check what lvls are selected 

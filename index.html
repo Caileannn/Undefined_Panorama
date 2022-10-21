@@ -48,7 +48,7 @@
 
     <div class="dropdown">
         <button id="dropdown-btn" onclick="toggleDropDownMenu()">
-            <span id="dropdown-category">Choose a category</span>
+            <span id="dropdown-category">Choose a topic</span>
             <span class="dropdown-arrow">^</span>
         </button>
         <div id="main-dropdown-menu">
@@ -74,7 +74,7 @@
             <br>
             <span class="read-more-btn">>> Read More</span>
         </div>
-        <h2 class="related-cont">Related:</h2>
+        <h2 class="related-cont">Relations:</h2>
             <div class="related-container">
                 
             </div>
@@ -97,11 +97,27 @@
             </div>
         </div>
         <div id="comment-section">
+            <div id="comment-title">
+                <h1 id="comment-title-h1">What do you think?</h1>
+            </div>
+
+
+
+
             <form class="comment-form" action="/action_page.php" onsubmit="return newComment()">
-                <label for="fname">Name:</label>
-                <input type="text" id="fname" name="fname"><br><br>
-                <label for="comment">Comment:</label>
-                <input type="text" id="comment" name="comment"><br><br>
+                <div class="comment-name-box">
+                    <label for="fname" id="fname-text">Name</label>
+                    <input type="text" id="fname" name="fname">
+                </div>
+                <div class="comment-email-box">
+                    <label for="email" id="email-text">E-mail</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div class="comment-comment-box">
+                    <label for="comment" id="comment-text">Thoughts:</label>
+                    <input type="text" id="comment" name="comment">
+                </div>
+                
                 <input type="submit" value="Submit" class="submit-input">
               </form>
         </div>

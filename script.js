@@ -96,15 +96,15 @@ var dropdown_category = document.querySelector('#dropdown-category')
 
 var imgSize1 = 3000;
 var imgSize2 = 1000;
-var imgSize3 = 500;   
+var imgSize3 = 750;   
 
 var box_size_1 = 200;
 var box_size_2 = 100;
-var box_size_3 = 50;
+var box_size_3 = 75;
 
 var font_size_1 = 11
 var font_size_2 = 8
-var font_size_3 = 4
+var font_size_3 = 6
 
 var link_distance_alter = 1000
 
@@ -118,7 +118,7 @@ var showList = false
 var showLvl1Terms = true;
 var showLvl2Terms = true;
 var showLvl3Terms = true;
-var showAllTerms = false;
+var showAllTerms = true;
 
 //slider buttons query
 var list_slider_container = document.getElementById('slider-buttons-list')
@@ -164,6 +164,7 @@ setSVG()
 // Simulation init
 async function initSim(){
     relationship_slider_btn.classList.toggle('off')
+    term_slider_btn_all.classList.add('off')
     document.getElementById("loader").style.display = "none";
     await waitClick() .then(() => {
         langContainer.style.display = "none"
