@@ -263,11 +263,13 @@ async function initSim(){
     
         })
         .on("mouseenter", (evt, d) => {
-            link
-            .attr("display", "none")
-            .filter(l => l.source === d || l.target === d)
-            .attr("display", "block")
-            .attr("stroke", "black");
+            if(!linksSwitch){
+                link
+                .attr("display", "none")
+                .filter(l => l.source === d || l.target === d)
+                .attr("display", "block")
+                .attr("stroke", "black");
+                }
         })
         .on("mouseleave", evt => {
             
@@ -332,11 +334,13 @@ async function initSim(){
             }
         })
         .on("mouseenter", (evt, d) => {
+            if(!linksSwitch){
             link
             .attr("display", "none")
             .filter(l => l.source === d || l.target === d)
             .attr("display", "block")
             .attr("stroke", "black");
+            }
         })
         .on("mouseleave", evt => {
             
@@ -379,11 +383,13 @@ async function initSim(){
         })
         .style('cursor', 'pointer')
         .on("mouseenter", (evt, d) => {
-            link
-            .attr("display", "none")
-            .filter(l => l.source === d || l.target === d)
-            .attr("display", "block")
-            .attr("stroke", "black");
+            if(!linksSwitch){
+                link
+                .attr("display", "none")
+                .filter(l => l.source === d || l.target === d)
+                .attr("display", "block")
+                .attr("stroke", "black");
+                }
         })
         .on("mouseleave", evt => {
             
