@@ -94,9 +94,9 @@ var dropdown_btn = document.querySelector('#dropdown-btn')
 var dropdown_arrow = document.querySelector('.dropdown-arrow')
 var dropdown_category = document.querySelector('#dropdown-category')
 
-var imgSize1 = 3000;
-var imgSize2 = 1000;
-var imgSize3 = 750;   
+var imgSize1 = 4000;
+var imgSize2 = 2000;
+var imgSize3 = 1500;   
 
 var box_size_1 = 200;
 var box_size_2 = 100;
