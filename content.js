@@ -281,7 +281,7 @@ function termFocus(){
     // get the x and y coordinates of term name/image
     // term.name => look for term in SVG 
     var findTerm = b1_title.replace(/ /g,'')
-    findTerm = '#xy' + findTerm.replace(/\./g, "") + "-focus"
+    findTerm = '#xy' + findTerm.replace(/[?&/]/g, "") + "-focus"
     var foundTerm = document.querySelector(findTerm)
     var termX = parseInt(foundTerm.getAttribute('x'))
     var termY = parseInt(foundTerm.getAttribute('y'))
@@ -292,7 +292,8 @@ function termFocusList(text){
     // get the x and y coordinates of term name/image
     // term.name => look for term in SVG 
     var findTerm = text.replace(/ /g,'')
-    findTerm = '#xy' + findTerm.replace(/\./g, "") + "-focus"
+    findTerm = '#xy' + findTerm.replace(/[?&/]/g, "") + "-focus"
+    console.log("Test"+findTerm)
     var foundTerm = document.querySelector(findTerm)
     var termX = parseInt(foundTerm.getAttribute('x'))
     var termY = parseInt(foundTerm.getAttribute('y'))

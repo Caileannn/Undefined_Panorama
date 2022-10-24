@@ -374,7 +374,7 @@ async function initSim(){
                     return font_size_3 + "em"
             }
         })
-        .attr("id", function(d){return "xy" + d.term.replace(/ /g,'').replace(/\./g, "")+ "-focus"})
+        .attr("id", function(d){return "xy" + d.term.replace(/ /g,'').replace(/[?&/]/g, "")+ "-focus"})
         .attr("display", function(d){
             if(linksNames){
                 return "block";
