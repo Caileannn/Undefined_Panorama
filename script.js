@@ -96,15 +96,15 @@ var dropdown_category = document.querySelector('#dropdown-category')
 
 var imgSize1 = 4000;
 var imgSize2 = 2000;
-var imgSize3 = 1500;   
+var imgSize3 = 1250;   
 
 var box_size_1 = 200;
 var box_size_2 = 100;
-var box_size_3 = 75;
+var box_size_3 = 100;
 
 var font_size_1 = 11
 var font_size_2 = 8
-var font_size_3 = 6
+var font_size_3 = 8
 
 var link_distance_alter = 1000
 
