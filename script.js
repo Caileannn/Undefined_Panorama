@@ -426,11 +426,14 @@ function resetViewport() {
 
 
 async function waitClick () {
+
+
+
   return await promise1
     .then((ev) => {
       setLang = ev.target.value
     })
-    .catch((ev) => setLang = ev.target.value)
+    .catch((ev) =>  setLang = ev.target.value)
 }
 
 
