@@ -46,7 +46,7 @@
     </div>
 
     <div class="lang-buttons">
-        <button value="KR" class="KR">KR</button>
+        <button value="KR" class="KR">한국</button>
         <button value="ENG" class="ENG">ENG</button>
     </div>
 
@@ -76,7 +76,9 @@
 
     </div>
    
-    <p id="loader">(Loading Network)</p>
+    <p class="loader" id="loader-1">	&lt;*&gt;</p>
+	<p class="loader" id="loader-2">	&lt;**&gt;</p>
+	<p class="loader "id="loader-3">	&lt;***&gt;</p>
 
   
     <img id="cont-header-close" src="./icons/x.svg">
@@ -133,7 +135,7 @@
 
 
 
-            <form class="comment-form" action="/action_page.php" onsubmit="return newComment()">
+            <form class="comment-form" action="/action_page.php" id="myForm" onsubmit="return newComment()">
                 <div class="comment-name-box">
                     <label for="fname" id="fname-text">Name:</label>
                     <input type="text" id="fname" name="fname">
@@ -146,8 +148,9 @@
                     <label for="comment" id="comment-text">Thoughts:</label>
                     <textarea type="text" id="comment" name="comment"></textarea>
                 </div>
-                
-                <input type="submit" value="Add" class="submit-input">
+                <div class="submit-comment-box">
+					<input type="submit" value="Add" class="submit-input" id="submit-button">
+				</div>
               </form>
         </div>
         </div>

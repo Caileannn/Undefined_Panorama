@@ -149,7 +149,12 @@ const promise1 = new Promise((resolve, reject) => {
     engLang.addEventListener('click', reject)
   })
 
+var promiseResolvedLoader = false;
+var promiseResolvedLang = false;
+var counter = 1;
 
+
+loopLoader()
 
 //Start Simulation 
 initSim()
@@ -161,17 +166,64 @@ resetViewport()
 setSVG()
 
 
+function loopLoader(){
+
+	if (!promiseResolvedLoader && promiseResolvedLang){
+		console.log(promise1)
+		if(counter == 1){ document.getElementById("loader-1").style.display = "inline"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "none";}
+		if(counter == 2){ document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "inline"; document.getElementById("loader-3").style.display = "none";}
+		if(counter == 3){ document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "inline";}
+
+		counter++
+		if(counter > 3){
+			counter = 1
+		}
+	}else if(!promiseResolvedLoader && !promiseResolvedLang){
+		document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "none";
+	} else if(promiseResolvedLoader){
+		document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "none";
+	}
+
+	setTimeout(loopLoader, 200)
+}
 
 // Simulation init
 async function initSim(){
     relationship_slider_btn.classList.toggle('off')
     term_slider_btn_all.classList.add('off')
-    document.getElementById("loader").style.display = "none";
+    document.getElementById("loader-1").style.display = "none";
+	document.getElementById("loader-2").style.display = "none";
+	document.getElementById("loader-3").style.display = "none";
+
     await waitClick() .then(() => {
         langContainer.style.display = "none"
-        document.getElementById("loader").style.display = "inline";
+		promiseResolvedLang = true;
+        // document.getElementById("loader").style.display = "inline";
       })
-    await parseNodeDB()
+
+	
+	  do {
+		try {
+		  // Perform the asynchronous operation inside the loop condition
+		  result = await parseNodeDB();
+		  promiseResolvedLoader = true;
+		  document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "none";	
+		} catch (error) {
+		  // Handle errors if necessary
+		  console.error(error);
+		}
+	  } while (!promiseResolvedLoader);
+
+
+	//   await parseNodeDB()
+	//   .then((result) => {
+	// 	console.log("Success! Result:", result);
+	// 	// You can use the 'result' data here or perform other tasks
+	//   })
+	//   .catch((error) => {
+	// 	console.error("Error occurred:", error);
+	//   });
+	
     addContentListner()
     contentList()
     dropdownList()
@@ -218,7 +270,7 @@ async function initSim(){
         .append("line")
         .attr("stroke", "black")
         .attr("display", "none")
-        .attr("opacity", 0.5)
+        .attr("opacity", 0.2)
         .attr("stroke-width", function(d) {
             return 20;
         })
@@ -426,9 +478,6 @@ function resetViewport() {
 
 
 async function waitClick () {
-
-
-
   return await promise1
     .then((ev) => {
       setLang = ev.target.value

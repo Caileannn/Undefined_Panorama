@@ -98,6 +98,9 @@ async function appendContent(){
          pushTermButton(t)
     })
 
+	document.getElementById("submit-button").classList.remove('disable-submit')
+	document.getElementById("submit-button").classList.add('enable-submit')
+	document.getElementById("submit-button").value = 'Add';
 }
 
 async function appendContent2(){
@@ -339,7 +342,14 @@ function newComment(){
         "data": {"name": nameValue, "e-mail": emailValue, "comment": commentValue, 'date': date, "term": termValue}
     }).then( response => {
         console.log(response.data);
+		//Chaneg GUI
+		document.getElementById("submit-button").value = 'Sent ✅';
+		document.getElementById("submit-button").classList.remove('enable-submit')
+		document.getElementById("submit-button").classList.add('disable-submit')
+		document.getElementById("submit-button").classList.add('disable-submit')
     });
+
+
 
     return false;
 }
