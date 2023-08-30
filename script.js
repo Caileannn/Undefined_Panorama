@@ -153,8 +153,10 @@ var promiseResolvedLoader = false;
 var promiseResolvedLang = false;
 var counter = 1;
 
+document.addEventListener("DOMContentLoaded", function () {
+	loopLoader()
+  });
 
-loopLoader()
 
 //Start Simulation 
 initSim()
@@ -166,7 +168,7 @@ resetViewport()
 setSVG()
 
 
-function loopLoader(){
+async function loopLoader(){
 
 	if (!promiseResolvedLoader && promiseResolvedLang){
 		console.log(promise1)

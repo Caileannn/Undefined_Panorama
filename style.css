@@ -79,6 +79,13 @@ svg{
   margin: auto;
 }
 
+.loader-hidden {
+	display: none;
+}
+
+.loader-active {
+	display: inline;
+}
 
 #linksButton {
   position: absolute;
