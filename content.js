@@ -76,19 +76,31 @@ async function appendContent(){
         //Sets term to null, every time one is found
         current_term = null
         
+
+
         //Checks if Source Matches, -> pushes target term and colour
         if(b1_title == links[y].source.term){
             related_term_lvl = links[y].target.level
             current_term = links[y].target.term
-            listOfOrderedLinks.push(current_term)
+			if(current_term != b1_title)
+			{
+				listOfOrderedLinks.push(current_term)
+			}
+            
             
         }
         //Checks if Target Matches, -> pushes source term and colour
         if(b1_title == links[y].target.term){
             related_term_lvl = links[y].source.level
             current_term = links[y].source.term
-            listOfOrderedLinks.push(current_term)
+			if(current_term != b1_title)
+			{
+				listOfOrderedLinks.push(current_term)
+			}
+            
         }
+
+		
     }
 
     //Orders list BubbleSort Algo

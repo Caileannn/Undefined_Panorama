@@ -230,6 +230,7 @@ async function initSim(){
      simulation = d3
         .forceSimulation(termDB)
         .force("link", d3.forceLink().distance(link_distance_alter).id(function(d) {
+
             return d.term;
         })
         .links(links))
@@ -260,7 +261,7 @@ async function initSim(){
     
     view.call(d3.zoom()
         .extent([[0.01, 1], [width, height]])
-        .scaleExtent([0.01, 0.3])
+        .scaleExtent([0.06, 0.3])
         .on("zoom", zoomed));
 
      link = g.selectAll("line")

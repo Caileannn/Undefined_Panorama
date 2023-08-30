@@ -7,13 +7,19 @@ async function generate_links(){
 
     //Term name
     var nodeName = node.term;
+	let indexDR;
+	while ((indexDR = node.relations.indexOf(node.term)) !== -1) {
+		// Delete the element at the found index
+		node.relations.splice(indexDR, 1);
+	  }
 
-
+	if(node.term == "Health") {console.log(node.relations)}
     for(var i = 0; i < cnt.length; i++){
       found = false;
       for(var j = 0; j < links.length && !found; j++){
         if(((links[j].source === nodeName) && (links[j].target === cnt[i])) || ((links[j].source === cnt[i]) && (links[j].target === nodeName))){
           found = true;
+		 
         }
       }
       if(!found){
@@ -24,6 +30,14 @@ async function generate_links(){
       }
     }
   });
+
+  console.log("LINKS:")
+  links.forEach(function callback(name, x) {
+	if(name.source == "Health")
+	{
+		console.log(links[x])
+	}
+  })
 }
 
 function setFirstLink(firstNode){

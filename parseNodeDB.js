@@ -33,16 +33,48 @@ function parseNodeDB(){
 }
 
 function fixTerms(initTerms){
-     initTerms.forEach(node => {
+
+	// Cleans up initial terms/nodes & their relations
+     initTerms.forEach(function callback(node, pos){
         relationString = node.relations
         //relationString = relationString.replace(/\s+/g, '')
         node.relations = !relationString ? [] : relationString.split(",")
         for(var i = 0; i < node.relations.length; i++){
-            node.relations[i] = node.relations[i].trim()
-            
+			if(node.relations[i] != null)
+			{
+				node.relations[i] = node.relations[i].trim()
+			}
         }
-        
+
+		
     })
+
+
+	// Function is responsible for adding any relation found to a term by searching the entire list of relations from other terms.
+	initTerms.forEach(node => {
+
+		let term_of_node = node.term;
+		let node_relations = node.relations;
+
+		initTerms.forEach(relNode => {
+			if(term_of_node != relNode.term)
+			{
+				var relNodeRelations = relNode.relations
+				relNodeRelations.forEach(rel => {
+					if(rel == term_of_node)
+					{
+						if(!node_relations.includes(rel))
+						{
+							node_relations.push(rel)
+						}
+						
+					}
+				})
+			}
+		})
+	})
+
+
     console.log("Fixed Relations")
     return initTerms
 }
