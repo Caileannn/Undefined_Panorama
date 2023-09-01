@@ -153,6 +153,8 @@ var promiseResolvedLoader = false;
 var promiseResolvedLang = false;
 var counter = 1;
 
+var resolveCounter = 0;
+
 document.addEventListener("DOMContentLoaded", function () {
 	loopLoader()
   });
@@ -171,7 +173,7 @@ setSVG()
 async function loopLoader(){
 
 	if (!promiseResolvedLoader && promiseResolvedLang){
-		console.log(promise1)
+		
 		if(counter == 1){ document.getElementById("loader-1").style.display = "inline"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "none";}
 		if(counter == 2){ document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "inline"; document.getElementById("loader-3").style.display = "none";}
 		if(counter == 3){ document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "inline";}
@@ -207,14 +209,23 @@ async function initSim(){
 	  do {
 		try {
 		  // Perform the asynchronous operation inside the loop condition
-		  result = await parseNodeDB();
+		  
+			result = await parseNodeDB();
+		  
+		  
 		  promiseResolvedLoader = true;
 		  document.getElementById("loader-1").style.display = "none"; document.getElementById("loader-2").style.display = "none"; document.getElementById("loader-3").style.display = "none";	
 		} catch (error) {
 		  // Handle errors if necessary
-		  console.error(error);
+		  //console.error(error);
+		  resolveCounter++;
+		  
 		}
-	  } while (!promiseResolvedLoader);
+	  } while (!promiseResolvedLoader && resolveCounter < 3);
+
+	  if(resolveCounter > 2){
+		return
+	  }
 
 
 	//   await parseNodeDB()

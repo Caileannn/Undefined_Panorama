@@ -339,7 +339,8 @@ function checkReadMoreText(){
 
 async function fetchComments(term_target){
     term_target = 'test'
-    await axios.get('https://sheetdb.io/api/v1/2ybgndb2ws51t/search?term=' + term_target + '&casesensitive=false&sort_by=desc').then( response => {
+	// https://sheetdb.io/api/v1/yiw0rtjqz6o8o
+    await axios.get('https://sheetdb.io/api/v1/yiw0rtjqz6o8o/search?term=' + term_target + '&casesensitive=false&sort_by=desc').then( response => {
         console.log(response.data)
     });
 }
@@ -350,7 +351,7 @@ function newComment(){
     var commentValue = document.getElementById("comment").value;
     var termValue = b1_title
     var date = getDateComments()
-    axios.post('https://sheetdb.io/api/v1/2ybgndb2ws51t',{
+    axios.post('https://sheetdb.io/api/v1/yiw0rtjqz6o8o',{
         "data": {"name": nameValue, "e-mail": emailValue, "comment": commentValue, 'date': date, "term": termValue}
     }).then( response => {
         console.log(response.data);
