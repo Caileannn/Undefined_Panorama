@@ -171,7 +171,6 @@ async function createImageGallery(img) {
         imageContainer.appendChild(contHead);
         galleryElement.appendChild(imageContainer);
     });
-	console.log(img)
 	toggleOffOn(galleryElement, img)
 }
 
