@@ -29,6 +29,7 @@ async function contentWindow(term_index){
     appendContentVideo()
     appendContentImage()
     openWindow()
+	fetchComments(termDB[term_index].term)
     blurBody()
 }
 
@@ -338,7 +339,7 @@ function checkReadMoreText(){
 }
 
 async function fetchComments(term_target){
-    term_target = 'test'
+    console.log(term_target)
 	// https://sheetdb.io/api/v1/yiw0rtjqz6o8o
     await axios.get('https://sheetdb.io/api/v1/yiw0rtjqz6o8o/search?term=' + term_target + '&casesensitive=false&sort_by=desc').then( response => {
         console.log(response.data)
