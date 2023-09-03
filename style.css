@@ -967,13 +967,16 @@ img.plus-img{
 	text-align: center;
 	font-weight: 700;
 	font-size: 1.9rem;
-	width: 100px;
+	width: 250px;
 	height: fit-content;
 	top:0;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	margin: auto;
+	display: flex;
+	flex-direction: row;
+	gap:20px;
 }
 
 .lang-buttons button{
