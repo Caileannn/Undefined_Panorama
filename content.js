@@ -339,11 +339,17 @@ function checkReadMoreText(){
 }
 
 async function fetchComments(term_target){
-    console.log(term_target)
-	// https://sheetdb.io/api/v1/yiw0rtjqz6o8o
     await axios.get('https://sheetdb.io/api/v1/yiw0rtjqz6o8o/search?term=' + term_target + '&casesensitive=false&sort_by=desc').then( response => {
-        console.log(response.data)
+		generateCommentUI(response.data)
     });
+}
+
+async function generateCommentUI(data){
+	console.log(data)
+	let commentUI = document.querySelector('.comment-view-section')
+	data.forEach(element => {
+		// create comment box - 3 sections
+	});
 }
 
 function newComment(){
