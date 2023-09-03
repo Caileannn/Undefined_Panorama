@@ -145,11 +145,34 @@ async function appendContentVideo(){
 
 
 async function appendContentImage(){
-    const img_container = document.getElementById("img-cont")
-    const img_overlay = document.getElementById("suboverlay-image")
-    console.log(b4_img_link)
-    img_container.src = b4_img_link
-    toggleOffOn(img_overlay, b4_img_link)
+	createImageGallery(b4_img_link)
+}
+
+async function createImageGallery(img) {
+    const galleryElement = document.getElementById("image-gallery");
+
+	// seperate urls
+
+	var images = img.split(',')
+
+    images.forEach((imageUrl) => {
+
+        const imageContainer = document.createElement("div");
+        imageContainer.id = "suboverlay-image";
+
+        const contHead = document.createElement("div");
+        contHead.className = "cont-head-4";
+
+        const image = document.createElement("img");
+        image.id = "img-cont";
+        image.src = imageUrl.replace(/\s+/g, "");;
+
+        contHead.appendChild(image);
+        imageContainer.appendChild(contHead);
+        galleryElement.appendChild(imageContainer);
+    });
+	console.log(img)
+	toggleOffOn(galleryElement, img)
 }
 
 async function removeAllRelations(){
@@ -204,6 +227,11 @@ async function closeWindow(){
     svg_body.classList.toggle('blur') 
     blurActive = false
     information_button.style.display = "block"
+	// Get the div element by its ID
+	const divElement = document.getElementById("image-gallery");
+
+	// Set the innerHTML to an empty string to delete all content
+	divElement.innerHTML = "";
 }
 
 function openWindow(){

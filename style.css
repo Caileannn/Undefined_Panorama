@@ -79,6 +79,14 @@ svg{
   margin: auto;
 }
 
+#image-gallery.off{
+	display: none;
+}
+
+#image-gallery{
+	display: block;
+}
+
 .loader-hidden {
 	display: none;
 }
@@ -977,6 +985,19 @@ img.plus-img{
 	display: flex;
 	flex-direction: row;
 	gap:20px;
+}
+
+.qr-code {
+	padding: 20px;
+	align-items: center;
+	align-items: center;
+	align-content: center;
+	text-align: center;
+}
+
+.qr-image {
+	width: 200px;
+	height: auto;
 }
 
 .lang-buttons button{
