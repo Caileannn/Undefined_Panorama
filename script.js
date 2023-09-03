@@ -273,8 +273,8 @@ async function initSim(){
         .on("tick", ticked);
     
     view.call(d3.zoom()
-        .extent([[0.01, 1], [width, height]])
-        .scaleExtent([0.06, 0.3])
+        .extent([[0.025, 0.2], [width, height]])
+        .scaleExtent([0.025, 0.2])
         .on("zoom", zoomed));
 
      link = g.selectAll("line")
@@ -483,7 +483,7 @@ function nodeFocus(x, y){
 function resetViewport() {
     view.transition().duration(750).call(
       zoom.transform,
-      d3.zoomIdentity.translate(width / 2, height / 2).scale(0.05).translate(0, 0),
+      d3.zoomIdentity.translate(width / 2, height / 2).scale(0.025).translate(0, 0)
     );
 }
 
