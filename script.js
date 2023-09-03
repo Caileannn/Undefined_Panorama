@@ -155,6 +155,8 @@ var counter = 1;
 
 var resolveCounter = 0;
 
+const info_txt = document.querySelector('.information-layer-text')
+
 document.addEventListener("DOMContentLoaded", function () {
 	loopLoader()
   });
@@ -240,6 +242,7 @@ async function initSim(){
     addContentListner()
     contentList()
     dropdownList()
+	generateQRCode()
      simulation = d3
         .forceSimulation(termDB)
         .force("link", d3.forceLink().distance(link_distance_alter).id(function(d) {
@@ -708,4 +711,18 @@ hub_icon.addEventListener('mouseleave', event =>{
     if(pageState){current.src = './icons/star.svg'}
     else{current.src = './icons/list.svg'}
 })
+
+async function generateQRCode() {
+	let qrCodeContainer = document.createElement('div');
+	qrCodeContainer.className = 'qr-code';
+
+	let qrImage = document.createElement('img');
+	qrImage.className = 'qr-image';
+	qrImage.src = './imgs/QRCODE_UP.svg';
+	qrImage.alt = 'qr-code';
+
+	qrCodeContainer.appendChild(qrImage);
+	info_txt.appendChild(qrCodeContainer)
+	console.log(info_txt)
+}
 

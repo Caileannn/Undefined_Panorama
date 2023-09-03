@@ -1,5 +1,6 @@
 const loadingButton = document.querySelector('#loader')
 
+
 function parseNodeDB(){
 	return new Promise(async (resolve, reject) => {
 		try {
@@ -19,7 +20,7 @@ function parseNodeDB(){
 		}
 		
 		
-
+		
 		//Organise each Dataset accordingly, so it can be understood by the sort function
 		//document.getElementById("loader").style.display = "none";
 		termDB = await fixTerms(termDB);
@@ -32,6 +33,7 @@ function parseNodeDB(){
 	}
 }	)
 }
+
 
 function fixTerms(initTerms){
 
