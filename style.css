@@ -1207,6 +1207,9 @@ img.plus-img{
   margin-left: 25px;
   bottom: 0px;
   font-family: 'Gothic A1', sans-serif;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
 
 }
 
@@ -1214,9 +1217,13 @@ img.plus-img{
     width: 30px;
     margin-bottom: 25px;
     flex-direction: row;
-    
     height: 30px;
 
+}
+
+.info-buttons img{
+  width: 30px;
+  height: 30px;
 }
 
 

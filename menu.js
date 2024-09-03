@@ -163,3 +163,7 @@ function toggleDropDownMenu(){
 
     //dropdown_arrow.textContent = dropdown_arrow.textContent.includes('˅') ? "˄" : "˅"
 }
+
+function restartSim(){
+    window.location.reload();
+}
